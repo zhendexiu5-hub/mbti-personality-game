@@ -121,4 +121,14 @@ assert.strictEqual(sandbox.gameState.screen, "play");
 sandbox.openHeartMap();
 assert.strictEqual(sandbox.gameState.screen, "map");
 
+const energyAnswers = {};
+sandbox.heartMapScenes.filter((scene) => scene.chapter === "energy").forEach((scene) => {
+  energyAnswers[scene.id] = "a";
+});
+const energySummary = sandbox.buildChapterSummary("energy", energyAnswers);
+assert.strictEqual(energySummary.chapter, "energy");
+assert.strictEqual(energySummary.fragments.length, 8);
+assert.ok(energySummary.title.includes("能量"));
+assert.ok(energySummary.text.length > 0);
+
 console.log("mbti game tests passed");
