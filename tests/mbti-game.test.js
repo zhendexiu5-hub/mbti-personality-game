@@ -3,6 +3,8 @@ const fs = require("fs");
 const vm = require("vm");
 
 const source = fs.readFileSync("mbti-game.js", "utf8");
+const gameMount = { innerHTML: "" };
+const toastMount = { innerHTML: "" };
 const sandbox = {
   console,
   localStorage: {
@@ -13,7 +15,9 @@ const sandbox = {
     removeItem() {}
   },
   document: {
-    getElementById() {
+    getElementById(id) {
+      if (id === "game") return gameMount;
+      if (id === "heartToast") return toastMount;
       return { innerHTML: "" };
     }
   },
@@ -31,6 +35,8 @@ const chapterCounts = sandbox.heartMapChapters.map((chapter) => (
   sandbox.heartMapScenes.filter((scene) => scene.chapter === chapter.id).length
 ));
 assert.deepStrictEqual(Array.from(chapterCounts), [8, 8, 8, 8]);
+assert.strictEqual(sandbox.heartMapScenes.every((scene) => scene.choices.length === 3), true);
+assert.strictEqual(sandbox.heartMapScenes.every((scene) => scene.choices[2].weights && !scene.choices[2].pole), true);
 
 const answers = {};
 sandbox.heartMapScenes.forEach((scene) => {
@@ -45,5 +51,20 @@ assert.ok(result.report.growth.includes("情绪") || result.report.growth.includ
 
 const missing = sandbox.firstUnfinishedScene({ s01: "a" });
 assert.strictEqual(missing.id, "s02");
+
+const blendedAnswers = {};
+sandbox.heartMapScenes.forEach((scene) => {
+  blendedAnswers[scene.id] = "c";
+});
+const blended = sandbox.calculateHeartMapResult(blendedAnswers);
+assert.strictEqual(blended.type.length, 4);
+assert.ok(Object.values(blended.scores).every((score) => score > 0));
+
+sandbox.gameState.screen = "play";
+sandbox.gameState.currentScene = "s01";
+sandbox.renderHeartGame();
+assert.ok(gameMount.innerHTML.includes("journey-navigator") === false);
+assert.strictEqual((gameMount.innerHTML.match(/class="choice-card/g) || []).length, 3);
+assert.ok(gameMount.innerHTML.includes("Ⅲ"));
 
 console.log("mbti game tests passed");

@@ -62,9 +62,11 @@ const manifest = {
         prop: direction.prop,
         beat: direction.beat,
         choices: Object.fromEntries(scene.choices.map((choice) => {
-          const profile = sandbox.cinematicPoleProfiles[choice.pole];
+          const primaryPole = sandbox.primaryChoicePole(choice);
+          const profile = sandbox.cinematicPoleProfiles[primaryPole];
           return [choice.id, {
-            pole: choice.pole,
+            pole: primaryPole,
+            weights: choice.weights || null,
             tone: profile.tone,
             motion: profile.motion,
             label: profile.label

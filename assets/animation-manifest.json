@@ -62,15 +62,27 @@
       "choices": {
         "a": {
           "pole": "E",
+          "weights": null,
           "tone": "flare",
           "motion": "step-forward",
           "label": "向外点燃"
         },
         "b": {
           "pole": "I",
+          "weights": null,
           "tone": "dusk",
           "motion": "step-back",
           "label": "向内回收"
+        },
+        "c": {
+          "pole": "E",
+          "weights": {
+            "E": 0.58,
+            "I": 0.42
+          },
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
         }
       }
     },
@@ -90,12 +102,24 @@
       "choices": {
         "a": {
           "pole": "E",
+          "weights": null,
           "tone": "flare",
           "motion": "step-forward",
           "label": "向外点燃"
         },
         "b": {
           "pole": "I",
+          "weights": null,
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        },
+        "c": {
+          "pole": "I",
+          "weights": {
+            "E": 0.42,
+            "I": 0.58
+          },
           "tone": "dusk",
           "motion": "step-back",
           "label": "向内回收"
@@ -118,15 +142,27 @@
       "choices": {
         "a": {
           "pole": "E",
+          "weights": null,
           "tone": "flare",
           "motion": "step-forward",
           "label": "向外点燃"
         },
         "b": {
           "pole": "I",
+          "weights": null,
           "tone": "dusk",
           "motion": "step-back",
           "label": "向内回收"
+        },
+        "c": {
+          "pole": "E",
+          "weights": {
+            "E": 0.58,
+            "I": 0.42
+          },
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
         }
       }
     },
@@ -146,12 +182,24 @@
       "choices": {
         "a": {
           "pole": "E",
+          "weights": null,
           "tone": "flare",
           "motion": "step-forward",
           "label": "向外点燃"
         },
         "b": {
           "pole": "I",
+          "weights": null,
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        },
+        "c": {
+          "pole": "I",
+          "weights": {
+            "E": 0.42,
+            "I": 0.58
+          },
           "tone": "dusk",
           "motion": "step-back",
           "label": "向内回收"
@@ -174,15 +222,27 @@
       "choices": {
         "a": {
           "pole": "S",
+          "weights": null,
           "tone": "detail",
           "motion": "inspect",
           "label": "拾取线索"
         },
         "b": {
           "pole": "N",
+          "weights": null,
           "tone": "vision",
           "motion": "dream",
           "label": "看见隐喻"
+        },
+        "c": {
+          "pole": "S",
+          "weights": {
+            "S": 0.58,
+            "N": 0.42
+          },
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
         }
       }
     },
@@ -202,12 +262,24 @@
       "choices": {
         "a": {
           "pole": "S",
+          "weights": null,
           "tone": "detail",
           "motion": "inspect",
           "label": "拾取线索"
         },
         "b": {
           "pole": "N",
+          "weights": null,
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        },
+        "c": {
+          "pole": "N",
+          "weights": {
+            "S": 0.42,
+            "N": 0.58
+          },
           "tone": "vision",
           "motion": "dream",
           "label": "看见隐喻"
@@ -230,15 +302,27 @@
       "choices": {
         "a": {
           "pole": "S",
+          "weights": null,
           "tone": "detail",
           "motion": "inspect",
           "label": "拾取线索"
         },
         "b": {
           "pole": "N",
+          "weights": null,
           "tone": "vision",
           "motion": "dream",
           "label": "看见隐喻"
+        },
+        "c": {
+          "pole": "S",
+          "weights": {
+            "S": 0.58,
+            "N": 0.42
+          },
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
         }
       }
     },
@@ -258,12 +342,24 @@
       "choices": {
         "a": {
           "pole": "S",
+          "weights": null,
           "tone": "detail",
           "motion": "inspect",
           "label": "拾取线索"
         },
         "b": {
           "pole": "N",
+          "weights": null,
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        },
+        "c": {
+          "pole": "N",
+          "weights": {
+            "S": 0.42,
+            "N": 0.58
+          },
           "tone": "vision",
           "motion": "dream",
           "label": "看见隐喻"
@@ -286,15 +382,27 @@
       "choices": {
         "a": {
           "pole": "T",
+          "weights": null,
           "tone": "edge",
           "motion": "measure",
           "label": "校准原则"
         },
         "b": {
           "pole": "F",
+          "weights": null,
           "tone": "heart",
           "motion": "reach",
           "label": "接住关系"
+        },
+        "c": {
+          "pole": "T",
+          "weights": {
+            "T": 0.58,
+            "F": 0.42
+          },
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
         }
       }
     },
@@ -314,12 +422,24 @@
       "choices": {
         "a": {
           "pole": "T",
+          "weights": null,
           "tone": "edge",
           "motion": "measure",
           "label": "校准原则"
         },
         "b": {
           "pole": "F",
+          "weights": null,
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        },
+        "c": {
+          "pole": "F",
+          "weights": {
+            "T": 0.42,
+            "F": 0.58
+          },
           "tone": "heart",
           "motion": "reach",
           "label": "接住关系"
@@ -342,15 +462,27 @@
       "choices": {
         "a": {
           "pole": "T",
+          "weights": null,
           "tone": "edge",
           "motion": "measure",
           "label": "校准原则"
         },
         "b": {
           "pole": "F",
+          "weights": null,
           "tone": "heart",
           "motion": "reach",
           "label": "接住关系"
+        },
+        "c": {
+          "pole": "T",
+          "weights": {
+            "T": 0.58,
+            "F": 0.42
+          },
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
         }
       }
     },
@@ -370,12 +502,24 @@
       "choices": {
         "a": {
           "pole": "T",
+          "weights": null,
           "tone": "edge",
           "motion": "measure",
           "label": "校准原则"
         },
         "b": {
           "pole": "F",
+          "weights": null,
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        },
+        "c": {
+          "pole": "F",
+          "weights": {
+            "T": 0.42,
+            "F": 0.58
+          },
           "tone": "heart",
           "motion": "reach",
           "label": "接住关系"
@@ -398,15 +542,27 @@
       "choices": {
         "a": {
           "pole": "J",
+          "weights": null,
           "tone": "order",
           "motion": "lock",
           "label": "收束路径"
         },
         "b": {
           "pole": "P",
+          "weights": null,
           "tone": "wild",
           "motion": "swerve",
           "label": "保留变化"
+        },
+        "c": {
+          "pole": "J",
+          "weights": {
+            "J": 0.58,
+            "P": 0.42
+          },
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
         }
       }
     },
@@ -426,12 +582,24 @@
       "choices": {
         "a": {
           "pole": "J",
+          "weights": null,
           "tone": "order",
           "motion": "lock",
           "label": "收束路径"
         },
         "b": {
           "pole": "P",
+          "weights": null,
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        },
+        "c": {
+          "pole": "P",
+          "weights": {
+            "J": 0.42,
+            "P": 0.58
+          },
           "tone": "wild",
           "motion": "swerve",
           "label": "保留变化"
@@ -454,15 +622,27 @@
       "choices": {
         "a": {
           "pole": "J",
+          "weights": null,
           "tone": "order",
           "motion": "lock",
           "label": "收束路径"
         },
         "b": {
           "pole": "P",
+          "weights": null,
           "tone": "wild",
           "motion": "swerve",
           "label": "保留变化"
+        },
+        "c": {
+          "pole": "J",
+          "weights": {
+            "J": 0.58,
+            "P": 0.42
+          },
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
         }
       }
     },
@@ -482,12 +662,24 @@
       "choices": {
         "a": {
           "pole": "J",
+          "weights": null,
           "tone": "order",
           "motion": "lock",
           "label": "收束路径"
         },
         "b": {
           "pole": "P",
+          "weights": null,
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        },
+        "c": {
+          "pole": "P",
+          "weights": {
+            "J": 0.42,
+            "P": 0.58
+          },
           "tone": "wild",
           "motion": "swerve",
           "label": "保留变化"
@@ -510,15 +702,27 @@
       "choices": {
         "a": {
           "pole": "E",
+          "weights": null,
           "tone": "flare",
           "motion": "step-forward",
           "label": "向外点燃"
         },
         "b": {
           "pole": "I",
+          "weights": null,
           "tone": "dusk",
           "motion": "step-back",
           "label": "向内回收"
+        },
+        "c": {
+          "pole": "E",
+          "weights": {
+            "E": 0.58,
+            "I": 0.42
+          },
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
         }
       }
     },
@@ -538,12 +742,24 @@
       "choices": {
         "a": {
           "pole": "E",
+          "weights": null,
           "tone": "flare",
           "motion": "step-forward",
           "label": "向外点燃"
         },
         "b": {
           "pole": "I",
+          "weights": null,
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        },
+        "c": {
+          "pole": "I",
+          "weights": {
+            "E": 0.42,
+            "I": 0.58
+          },
           "tone": "dusk",
           "motion": "step-back",
           "label": "向内回收"
@@ -566,15 +782,27 @@
       "choices": {
         "a": {
           "pole": "E",
+          "weights": null,
           "tone": "flare",
           "motion": "step-forward",
           "label": "向外点燃"
         },
         "b": {
           "pole": "I",
+          "weights": null,
           "tone": "dusk",
           "motion": "step-back",
           "label": "向内回收"
+        },
+        "c": {
+          "pole": "E",
+          "weights": {
+            "E": 0.58,
+            "I": 0.42
+          },
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
         }
       }
     },
@@ -594,12 +822,24 @@
       "choices": {
         "a": {
           "pole": "E",
+          "weights": null,
           "tone": "flare",
           "motion": "step-forward",
           "label": "向外点燃"
         },
         "b": {
           "pole": "I",
+          "weights": null,
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        },
+        "c": {
+          "pole": "I",
+          "weights": {
+            "E": 0.42,
+            "I": 0.58
+          },
           "tone": "dusk",
           "motion": "step-back",
           "label": "向内回收"
@@ -622,15 +862,27 @@
       "choices": {
         "a": {
           "pole": "S",
+          "weights": null,
           "tone": "detail",
           "motion": "inspect",
           "label": "拾取线索"
         },
         "b": {
           "pole": "N",
+          "weights": null,
           "tone": "vision",
           "motion": "dream",
           "label": "看见隐喻"
+        },
+        "c": {
+          "pole": "S",
+          "weights": {
+            "S": 0.58,
+            "N": 0.42
+          },
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
         }
       }
     },
@@ -650,12 +902,24 @@
       "choices": {
         "a": {
           "pole": "S",
+          "weights": null,
           "tone": "detail",
           "motion": "inspect",
           "label": "拾取线索"
         },
         "b": {
           "pole": "N",
+          "weights": null,
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        },
+        "c": {
+          "pole": "N",
+          "weights": {
+            "S": 0.42,
+            "N": 0.58
+          },
           "tone": "vision",
           "motion": "dream",
           "label": "看见隐喻"
@@ -678,15 +942,27 @@
       "choices": {
         "a": {
           "pole": "S",
+          "weights": null,
           "tone": "detail",
           "motion": "inspect",
           "label": "拾取线索"
         },
         "b": {
           "pole": "N",
+          "weights": null,
           "tone": "vision",
           "motion": "dream",
           "label": "看见隐喻"
+        },
+        "c": {
+          "pole": "S",
+          "weights": {
+            "S": 0.58,
+            "N": 0.42
+          },
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
         }
       }
     },
@@ -706,12 +982,24 @@
       "choices": {
         "a": {
           "pole": "S",
+          "weights": null,
           "tone": "detail",
           "motion": "inspect",
           "label": "拾取线索"
         },
         "b": {
           "pole": "N",
+          "weights": null,
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        },
+        "c": {
+          "pole": "N",
+          "weights": {
+            "S": 0.42,
+            "N": 0.58
+          },
           "tone": "vision",
           "motion": "dream",
           "label": "看见隐喻"
@@ -734,15 +1022,27 @@
       "choices": {
         "a": {
           "pole": "T",
+          "weights": null,
           "tone": "edge",
           "motion": "measure",
           "label": "校准原则"
         },
         "b": {
           "pole": "F",
+          "weights": null,
           "tone": "heart",
           "motion": "reach",
           "label": "接住关系"
+        },
+        "c": {
+          "pole": "T",
+          "weights": {
+            "T": 0.58,
+            "F": 0.42
+          },
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
         }
       }
     },
@@ -762,12 +1062,24 @@
       "choices": {
         "a": {
           "pole": "T",
+          "weights": null,
           "tone": "edge",
           "motion": "measure",
           "label": "校准原则"
         },
         "b": {
           "pole": "F",
+          "weights": null,
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        },
+        "c": {
+          "pole": "F",
+          "weights": {
+            "T": 0.42,
+            "F": 0.58
+          },
           "tone": "heart",
           "motion": "reach",
           "label": "接住关系"
@@ -790,15 +1102,27 @@
       "choices": {
         "a": {
           "pole": "T",
+          "weights": null,
           "tone": "edge",
           "motion": "measure",
           "label": "校准原则"
         },
         "b": {
           "pole": "F",
+          "weights": null,
           "tone": "heart",
           "motion": "reach",
           "label": "接住关系"
+        },
+        "c": {
+          "pole": "T",
+          "weights": {
+            "T": 0.58,
+            "F": 0.42
+          },
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
         }
       }
     },
@@ -818,12 +1142,24 @@
       "choices": {
         "a": {
           "pole": "T",
+          "weights": null,
           "tone": "edge",
           "motion": "measure",
           "label": "校准原则"
         },
         "b": {
           "pole": "F",
+          "weights": null,
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        },
+        "c": {
+          "pole": "F",
+          "weights": {
+            "T": 0.42,
+            "F": 0.58
+          },
           "tone": "heart",
           "motion": "reach",
           "label": "接住关系"
@@ -846,15 +1182,27 @@
       "choices": {
         "a": {
           "pole": "J",
+          "weights": null,
           "tone": "order",
           "motion": "lock",
           "label": "收束路径"
         },
         "b": {
           "pole": "P",
+          "weights": null,
           "tone": "wild",
           "motion": "swerve",
           "label": "保留变化"
+        },
+        "c": {
+          "pole": "J",
+          "weights": {
+            "J": 0.58,
+            "P": 0.42
+          },
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
         }
       }
     },
@@ -874,12 +1222,24 @@
       "choices": {
         "a": {
           "pole": "J",
+          "weights": null,
           "tone": "order",
           "motion": "lock",
           "label": "收束路径"
         },
         "b": {
           "pole": "P",
+          "weights": null,
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        },
+        "c": {
+          "pole": "P",
+          "weights": {
+            "J": 0.42,
+            "P": 0.58
+          },
           "tone": "wild",
           "motion": "swerve",
           "label": "保留变化"
@@ -902,15 +1262,27 @@
       "choices": {
         "a": {
           "pole": "J",
+          "weights": null,
           "tone": "order",
           "motion": "lock",
           "label": "收束路径"
         },
         "b": {
           "pole": "P",
+          "weights": null,
           "tone": "wild",
           "motion": "swerve",
           "label": "保留变化"
+        },
+        "c": {
+          "pole": "J",
+          "weights": {
+            "J": 0.58,
+            "P": 0.42
+          },
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
         }
       }
     },
@@ -930,12 +1302,24 @@
       "choices": {
         "a": {
           "pole": "J",
+          "weights": null,
           "tone": "order",
           "motion": "lock",
           "label": "收束路径"
         },
         "b": {
           "pole": "P",
+          "weights": null,
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        },
+        "c": {
+          "pole": "P",
+          "weights": {
+            "J": 0.42,
+            "P": 0.58
+          },
           "tone": "wild",
           "motion": "swerve",
           "label": "保留变化"

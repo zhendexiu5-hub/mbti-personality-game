@@ -587,6 +587,75 @@ var heartMapActions = {
   s32: { a: "定路", b: "开门" }
 };
 
+var heartThirdChoiceProfiles = {
+  energy: {
+    action: "斡旋",
+    text: "先回应眼前的人与事，再给自己留出一小段安静判断的余地。",
+    note: "你会在连接和自我整理之间寻找可持续的节奏。",
+    weights: { E: 0.58, I: 0.42 }
+  },
+  perception: {
+    action: "探问",
+    text: "先抓住眼前最可靠的线索，再问这些线索背后正在连成什么故事。",
+    note: "你会把细节和意义放在同一张地图上理解。",
+    weights: { S: 0.58, N: 0.42 }
+  },
+  judgment: {
+    action: "衡量",
+    text: "先问清事实、代价和责任，再确认每个人是否还能承受这个决定。",
+    note: "你会同时校准原则和关系里的真实感受。",
+    weights: { T: 0.58, F: 0.42 }
+  },
+  rhythm: {
+    action: "留白",
+    text: "先定下最低限度的安全安排，再把剩下的空间交给现场变化。",
+    note: "你会在计划和弹性之间保留一道可调整的门。",
+    weights: { J: 0.58, P: 0.42 }
+  }
+};
+
+var heartThirdChoiceByCategory = {
+  "情感关系": {
+    actionSuffix: "微光",
+    notePrefix: "在亲密关系里，"
+  },
+  "人际相处": {
+    actionSuffix: "试探",
+    notePrefix: "在人群关系里，"
+  },
+  "职业工作": {
+    actionSuffix: "校准",
+    notePrefix: "在任务推进里，"
+  },
+  "情绪成长": {
+    actionSuffix: "停顿",
+    notePrefix: "在情绪整理里，"
+  }
+};
+
+function addCinematicThirdChoices() {
+  heartMapScenes.forEach((scene, index) => {
+    if (scene.choices.some((choice) => choice.id === "c")) return;
+    const profile = heartThirdChoiceProfiles[scene.chapter];
+    const category = heartThirdChoiceByCategory[scene.category];
+    const weights = { ...profile.weights };
+    const letters = Object.keys(weights);
+    if (index % 2 === 1) {
+      weights[letters[0]] = profile.weights[letters[1]];
+      weights[letters[1]] = profile.weights[letters[0]];
+    }
+    scene.choices.push({
+      id: "c",
+      action: `${profile.action}${category.actionSuffix}`,
+      text: profile.text,
+      weights,
+      note: `${category.notePrefix}${profile.note}`
+    });
+  });
+}
+
+addCinematicThirdChoices();
+
 var chapterMarks = {
   energy: "火",
   perception: "林",
@@ -726,6 +795,7 @@ var gameState = {
   answers: savedHeartMap.answers || {},
   result: savedHeartMap.result || null,
   lastChoice: null,
+  navigatorOpen: false,
   toast: ""
 };
 
@@ -751,7 +821,12 @@ function currentHeartScene() {
 }
 
 function choiceAction(scene, choice) {
+  if (choice.action) return choice.action;
   return heartMapActions[scene.id]?.[choice.id] || choice.text.replace(/[。！？；;]+$/g, "");
+}
+
+function choiceMark(choiceId) {
+  return choiceId === "a" ? "Ⅰ" : choiceId === "b" ? "Ⅱ" : "Ⅲ";
 }
 
 function compactNote(note) {
@@ -832,7 +907,7 @@ function renderParticleField(direction) {
 function renderCinematicStage(scene, visual, selected) {
   const direction = cinematicDirection(scene);
   const selectedChoice = scene.choices.find((choice) => choice.id === selected);
-  const selectedPole = selectedChoice?.pole || direction.firstPole;
+  const selectedPole = selectedChoice ? primaryChoicePole(selectedChoice) : direction.firstPole;
   const poleProfile = cinematicPoleProfiles[selectedPole] || cinematicPoleProfiles.E;
   return `
     <div class="cinematic-stage mood-${direction.mood} camera-${direction.camera} foreground-${direction.foreground} expression-${direction.expression} ${selected ? `choice-${poleProfile.tone}` : ""}" style="--chapter:${visual.glow}">
@@ -867,7 +942,7 @@ function renderCinematicStage(scene, visual, selected) {
 
 function renderChoiceEcho() {
   if (!gameState.lastChoice) return "";
-  const poleProfile = cinematicPoleProfiles[gameState.lastChoice.pole] || cinematicPoleProfiles.E;
+  const poleProfile = cinematicPoleProfiles[gameState.lastChoice.pole] || cinematicPoleProfiles[gameState.lastChoice.primaryPole] || cinematicPoleProfiles.E;
   return `
     <div class="choice-echo echo-${poleProfile.tone}">
       <i>${gameState.lastChoice.mark}</i>
@@ -904,16 +979,56 @@ function renderResultConstellation(result) {
   `;
 }
 
+function renderHeartNavigator() {
+  if (!gameState.navigatorOpen) return "";
+  return `
+    <div class="journey-navigator">
+      <div class="journey-head">
+        <strong>旅程回廊</strong>
+        <button onclick="toggleHeartNavigator()" aria-label="关闭旅程回廊">关闭</button>
+      </div>
+      <div class="journey-scroll">
+        ${heartMapChapters.map((chapter) => {
+          const scenes = heartMapScenes.filter((scene) => scene.chapter === chapter.id);
+          return `
+            <section class="journey-chapter" style="--chapter:${chapter.color}">
+              <h3><span>${chapterMarks[chapter.id]}</span>${chapter.title}</h3>
+              <div class="journey-grid">
+                ${scenes.map((scene) => {
+                  const index = sceneIndex(scene.id);
+                  const done = Boolean(gameState.answers[scene.id]);
+                  const active = gameState.currentScene === scene.id;
+                  const locked = index > 0 && !gameState.answers[heartMapScenes[index - 1].id];
+                  const answer = scene.choices.find((choice) => choice.id === gameState.answers[scene.id]);
+                  return `
+                    <button class="${done ? "done" : ""} ${active ? "active" : ""} ${locked ? "locked" : ""}" ${locked ? "disabled" : ""} onclick="openHeartScene('${scene.id}')">
+                      <i>${index + 1}</i>
+                      <strong>${scene.title}</strong>
+                      <span>${locked ? "未解锁" : done ? choiceAction(scene, answer) : "当前线索"}</span>
+                    </button>
+                  `;
+                }).join("")}
+              </div>
+            </section>
+          `;
+        }).join("")}
+      </div>
+    </div>
+  `;
+}
+
 function answerHeartScene(choiceId) {
   const scene = currentHeartScene();
   const choice = scene.choices.find((item) => item.id === choiceId);
   gameState.answers[scene.id] = choiceId;
   if (choice) {
+    const primaryPole = primaryChoicePole(choice);
     gameState.lastChoice = {
       sceneId: scene.id,
       title: scene.title,
       choiceId: choice.id,
-      pole: choice.pole,
+      pole: primaryPole,
+      primaryPole,
       mark: chapterMarks[scene.chapter],
       note: choice.note
     };
@@ -930,6 +1045,7 @@ function startHeartMap() {
   gameState.screen = "play";
   gameState.currentScene = firstUnfinishedScene(gameState.answers)?.id || "s01";
   gameState.lastChoice = null;
+  gameState.navigatorOpen = false;
   saveHeartMap();
   renderHeartGame();
 }
@@ -944,7 +1060,13 @@ function openHeartScene(sceneId) {
   gameState.screen = "play";
   gameState.currentScene = sceneId;
   gameState.lastChoice = null;
+  gameState.navigatorOpen = false;
   saveHeartMap();
+  renderHeartGame();
+}
+
+function toggleHeartNavigator() {
+  gameState.navigatorOpen = !gameState.navigatorOpen;
   renderHeartGame();
 }
 
@@ -970,8 +1092,26 @@ function resetHeartMap() {
   gameState.answers = {};
   gameState.result = null;
   gameState.lastChoice = null;
+  gameState.navigatorOpen = false;
   localStorage.removeItem("heartMapProgress");
   renderHeartGame();
+}
+
+function primaryChoicePole(choice) {
+  if (choice.pole) return choice.pole;
+  if (!choice.weights) return "E";
+  return Object.entries(choice.weights).sort((a, b) => b[1] - a[1])[0][0];
+}
+
+function scoreHeartChoice(scores, choice) {
+  if (!choice) return;
+  if (choice.weights) {
+    Object.entries(choice.weights).forEach(([pole, value]) => {
+      scores[pole] += value;
+    });
+    return;
+  }
+  scores[choice.pole] += 1;
 }
 
 function calculateHeartMapResult(answers) {
@@ -980,8 +1120,8 @@ function calculateHeartMapResult(answers) {
   heartMapScenes.forEach((scene) => {
     const choice = scene.choices.find((item) => item.id === answers[scene.id]);
     if (!choice) return;
-    scores[choice.pole] += 1;
-    notes.push({ scene: scene.title, category: scene.category, pole: choice.pole, note: choice.note });
+    scoreHeartChoice(scores, choice);
+    notes.push({ scene: scene.title, category: scene.category, pole: primaryChoicePole(choice), note: choice.note });
   });
   const type = [
     scores.E >= scores.I ? "E" : "I",
@@ -1131,6 +1271,7 @@ function renderHeartPlay() {
     <div class="playfield" style="--chapter:${visual.glow}; --scene-image:url('${visual.image}'); --scene-fallback:${visual.fallback}">
       <div class="scene-layer"></div>
       ${renderChoiceEcho()}
+      ${renderHeartNavigator()}
       <div class="stage-hud">
         <span>${visual.label} · ${chapter.title}</span>
         <span>${index + 1} / ${heartMapScenes.length}</span>
@@ -1140,6 +1281,7 @@ function renderHeartPlay() {
       </div>
       <div class="bottom-ui">
         <div class="heart-actions">
+          <button onclick="toggleHeartNavigator()">${gameState.navigatorOpen ? "收起" : "旅程"}</button>
           <button onclick="openHeartScene('${heartMapScenes[Math.max(0, index - 1)].id}')">上一幕</button>
           ${nextScene ? `<button onclick="openHeartScene('${nextScene.id}')">下一幕</button>` : ""}
           <button onclick="finishHeartMap()">结算</button>
@@ -1151,8 +1293,8 @@ function renderHeartPlay() {
         </section>
         <div class="choices-container">
           ${scene.choices.map((choice) => `
-            <button class="choice-card choice-${choice.pole.toLowerCase()} ${selected === choice.id ? "selected" : ""}" onclick="answerHeartScene('${choice.id}')" aria-label="${choice.text}">
-              <span>${choice.id === "a" ? "Ⅰ" : "Ⅱ"}</span>
+            <button class="choice-card choice-${primaryChoicePole(choice).toLowerCase()} ${selected === choice.id ? "selected" : ""}" onclick="answerHeartScene('${choice.id}')" aria-label="${choice.text}">
+              <span>${choiceMark(choice.id)}</span>
               <strong>${choiceAction(scene, choice)}<em>${choice.text}</em></strong>
             </button>
           `).join("")}
