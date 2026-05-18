@@ -1246,6 +1246,40 @@ function scoreHeartChoice(scores, choice) {
   scores[choice.pole] += 1;
 }
 
+function dimensionStrength(primaryScore, secondaryScore) {
+  const diff = Math.abs(primaryScore - secondaryScore);
+  if (diff >= 4) return "明显";
+  if (diff >= 1) return "温和";
+  return "平衡";
+}
+
+function dimensionText(label, primary, secondary) {
+  if (label === "平衡") return `你会在${poleMeta[primary].name}与${poleMeta[secondary].name}之间灵活移动。`;
+  if (label === "温和") return `你更常使用${poleMeta[primary].name}，但仍保留另一侧的弹性。`;
+  return `${poleMeta[primary].name}是这组选择里更清晰的主旋律。`;
+}
+
+function calculateDimensionStrengths(scores) {
+  const dimensions = [
+    ["energy", "E", "I"],
+    ["perception", "S", "N"],
+    ["judgment", "T", "F"],
+    ["rhythm", "J", "P"]
+  ];
+  return dimensions.reduce((summary, [key, left, right]) => {
+    const primary = scores[left] >= scores[right] ? left : right;
+    const secondary = primary === left ? right : left;
+    const label = dimensionStrength(scores[primary], scores[secondary]);
+    summary[key] = {
+      primary,
+      secondary,
+      label,
+      text: dimensionText(label, primary, secondary)
+    };
+    return summary;
+  }, {});
+}
+
 function calculateHeartMapResult(answers) {
   const scores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
   const notes = [];
@@ -1261,7 +1295,15 @@ function calculateHeartMapResult(answers) {
     scores.T >= scores.F ? "T" : "F",
     scores.J >= scores.P ? "J" : "P"
   ].join("");
-  const result = { type, scores, notes, profile: heartTypeProfiles[type] };
+  const echoes = buildEchoFragments(answers);
+  const result = {
+    type,
+    scores,
+    notes,
+    echoes,
+    strengths: calculateDimensionStrengths(scores),
+    profile: heartTypeProfiles[type]
+  };
   result.report = buildHeartMapReport(result);
   return result;
 }
@@ -1271,12 +1313,15 @@ function buildHeartMapReport(result) {
   const strongest = letters.map((letter) => poleMeta[letter]);
   const loveNotes = result.notes.filter((item) => item.category === "情感关系").map((item) => item.note);
   const growthNotes = result.notes.filter((item) => item.category === "情绪成长").map((item) => item.note);
+  const evidence = result.echoes.slice(-5).map((item) => `${item.name}：${item.text}`).join("；");
+  const strengthText = Object.values(result.strengths).map((item) => item.text).join("");
   return {
-    journey: `你走完了一张心境地图，最终呈现为 ${result.type}：${result.profile}。${strongest.map((item) => item.text).join("")}`,
+    journey: `你走完了一张心境地图，最终呈现为 ${result.type}：${result.profile}。${strongest.map((item) => item.text).join("")}${strengthText}`,
     love: `在情感和亲密关系里，${formatHeartNotes(loveNotes)}。这不是给你贴标签，而是提醒你：喜欢、边界和安全感需要同时被看见。`,
     social: `在人际相处中，你的选择显示出一种稳定模式：先保护真实节奏，再决定靠近方式。朋友、家庭和社交场合都适合用更清楚的话表达边界。`,
     work: `在职业或任务情境里，这张地图只给轻量参考：把工作当成能量管理的一部分，不把人格结果变成固定职业模板。`,
-    growth: `情绪成长线索：${formatHeartNotes(growthNotes)}。接下来 7 天可以记录“让我靠近的事”和“让我后退的事”，找到真正适合你的恢复方式。`
+    growth: `情绪成长线索：${formatHeartNotes(growthNotes)}。接下来 7 天可以记录“让我靠近的事”和“让我后退的事”，找到真正适合你的恢复方式。`,
+    evidence: `你的关键回响包括：${evidence || "尚未留下足够回响"}。`
   };
 }
 
@@ -1541,13 +1586,35 @@ function renderHeartResult() {
             </div>
           `).join("")}
         </div>
+        <div class="strength-grid">
+          ${Object.entries(result.strengths).map(([key, item]) => `
+            <article>
+              <strong>${heartMapChapters.find((chapter) => chapter.id === key).title}</strong>
+              <span>${item.primary}/${item.secondary} · ${item.label}</span>
+              <p>${item.text}</p>
+            </article>
+          `).join("")}
+        </div>
+        <section class="result-evidence">
+          <h3>选择回响</h3>
+          <div>
+            ${result.echoes.slice(-6).map((echo) => `
+              <article>
+                <strong>${echo.name}</strong>
+                <span>${echo.title} · ${echo.action}</span>
+                <p>${echo.text}</p>
+              </article>
+            `).join("")}
+          </div>
+        </section>
         <div class="report-stack">
         ${Object.entries({
           "心境旅程": result.report.journey,
           "情感关系": result.report.love,
           "人际相处": result.report.social,
           "职业工作": result.report.work,
-          "情绪成长": result.report.growth
+          "情绪成长": result.report.growth,
+          "选择证据": result.report.evidence
         }).map(([title, body]) => `
           <details class="report-card">
             <summary>${title}</summary>

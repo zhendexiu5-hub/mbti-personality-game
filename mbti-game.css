@@ -1276,6 +1276,67 @@ button {
   font-weight: 900;
 }
 
+.strength-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.strength-grid article,
+.result-evidence article {
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.64);
+}
+
+.strength-grid strong,
+.strength-grid span,
+.strength-grid p,
+.result-evidence strong,
+.result-evidence span,
+.result-evidence p {
+  display: block;
+}
+
+.strength-grid strong,
+.result-evidence h3,
+.result-evidence strong {
+  color: #fef3c7;
+}
+
+.strength-grid span,
+.result-evidence span {
+  margin-top: 5px;
+  color: #fbbf24;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.strength-grid p,
+.result-evidence p {
+  margin: 8px 0 0;
+  color: #cbd5e1;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.result-evidence {
+  margin-bottom: 24px;
+}
+
+.result-evidence h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.result-evidence > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
 .report-stack {
   position: relative;
   display: grid;
