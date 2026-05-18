@@ -4,3 +4,4 @@ node_modules/
 npm-debug.log*
 *.local
 preview*.png
+test-results/
