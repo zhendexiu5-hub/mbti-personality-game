@@ -104,4 +104,21 @@ assert.ok(gameMount.innerHTML.includes("journey-navigator") === false);
 assert.strictEqual((gameMount.innerHTML.match(/class="choice-card/g) || []).length, 3);
 assert.ok(gameMount.innerHTML.includes("Ⅲ"));
 
+sandbox.gameState.screen = "map";
+sandbox.gameState.answers = { s01: "a", s02: "b" };
+sandbox.gameState.currentScene = "s03";
+sandbox.renderHeartGame();
+assert.ok(gameMount.innerHTML.includes("heart-map-screen"));
+assert.ok(gameMount.innerHTML.includes("map-node"));
+assert.ok(gameMount.innerHTML.includes("心境地图"));
+assert.ok(gameMount.innerHTML.includes("回响"));
+
+sandbox.gameState.answers = {};
+sandbox.startHeartMap();
+assert.strictEqual(sandbox.gameState.screen, "map");
+sandbox.openHeartScene("s01");
+assert.strictEqual(sandbox.gameState.screen, "play");
+sandbox.openHeartMap();
+assert.strictEqual(sandbox.gameState.screen, "map");
+
 console.log("mbti game tests passed");
