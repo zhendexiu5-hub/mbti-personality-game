@@ -35,6 +35,31 @@ const chapterCounts = sandbox.heartMapChapters.map((chapter) => (
   sandbox.heartMapScenes.filter((scene) => scene.chapter === chapter.id).length
 ));
 assert.deepStrictEqual(Array.from(chapterCounts), [8, 8, 8, 8]);
+
+const mapNodes = sandbox.buildHeartMapNodes();
+assert.strictEqual(mapNodes.length, 32);
+assert.deepStrictEqual(
+  mapNodes.slice(0, 4).map((node) => node.id),
+  ["s01", "s02", "s03", "s04"]
+);
+assert.strictEqual(mapNodes[0].chapter, "energy");
+assert.strictEqual(mapNodes[0].number, 1);
+assert.ok(Number.isFinite(mapNodes[0].x));
+assert.ok(Number.isFinite(mapNodes[0].y));
+assert.ok(mapNodes.every((node) => node.echoName));
+
+const emptyNodeState = sandbox.getHeartMapNodeState("s01", {});
+assert.strictEqual(emptyNodeState.done, false);
+assert.strictEqual(emptyNodeState.active, true);
+assert.strictEqual(emptyNodeState.locked, false);
+
+const lockedNodeState = sandbox.getHeartMapNodeState("s03", { s01: "a" });
+assert.strictEqual(lockedNodeState.locked, true);
+
+const doneNodeState = sandbox.getHeartMapNodeState("s02", { s01: "a", s02: "b" });
+assert.strictEqual(doneNodeState.done, true);
+assert.strictEqual(doneNodeState.locked, false);
+
 assert.strictEqual(sandbox.heartMapScenes.every((scene) => scene.choices.length === 3), true);
 assert.strictEqual(sandbox.heartMapScenes.every((scene) => scene.choices[2].weights && !scene.choices[2].pole), true);
 
@@ -59,6 +84,18 @@ sandbox.heartMapScenes.forEach((scene) => {
 const blended = sandbox.calculateHeartMapResult(blendedAnswers);
 assert.strictEqual(blended.type.length, 4);
 assert.ok(Object.values(blended.scores).every((score) => score > 0));
+
+const echo = sandbox.buildChoiceEcho(sandbox.heartMapScenes[0], sandbox.heartMapScenes[0].choices[0]);
+assert.strictEqual(echo.sceneId, "s01");
+assert.strictEqual(echo.chapter, "energy");
+assert.ok(echo.name.length > 0);
+assert.ok(echo.text.length > 0);
+assert.ok(echo.category.length > 0);
+
+const fragments = sandbox.buildEchoFragments({ s01: "a", s02: "b", s09: "c" });
+assert.strictEqual(fragments.length, 3);
+assert.deepStrictEqual(fragments.map((fragment) => fragment.sceneId), ["s01", "s02", "s09"]);
+assert.ok(fragments.every((fragment) => fragment.name && fragment.text));
 
 sandbox.gameState.screen = "play";
 sandbox.gameState.currentScene = "s01";
