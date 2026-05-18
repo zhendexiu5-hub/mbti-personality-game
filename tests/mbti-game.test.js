@@ -47,6 +47,8 @@ assert.strictEqual(mapNodes[0].number, 1);
 assert.ok(Number.isFinite(mapNodes[0].x));
 assert.ok(Number.isFinite(mapNodes[0].y));
 assert.ok(mapNodes.every((node) => node.echoName));
+assert.ok(mapNodes.every((node) => node.x >= 6 && node.x <= 94));
+assert.ok(mapNodes.every((node) => node.y >= 6 && node.y <= 94));
 
 const emptyNodeState = sandbox.getHeartMapNodeState("s01", {});
 assert.strictEqual(emptyNodeState.done, false);

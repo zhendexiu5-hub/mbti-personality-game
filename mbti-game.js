@@ -706,10 +706,10 @@ var categoryVisuals = {
 };
 
 var chapterMapPositions = {
-  energy: { cx: 50, cy: 18, arc: 24 },
-  perception: { cx: 18, cy: 50, arc: 24 },
-  judgment: { cx: 82, cy: 50, arc: 24 },
-  rhythm: { cx: 50, cy: 82, arc: 24 }
+  energy: { cx: 50, cy: 30, arc: 18 },
+  perception: { cx: 30, cy: 50, arc: 18 },
+  judgment: { cx: 70, cy: 50, arc: 18 },
+  rhythm: { cx: 50, cy: 70, arc: 18 }
 };
 
 var echoNameByPole = {
