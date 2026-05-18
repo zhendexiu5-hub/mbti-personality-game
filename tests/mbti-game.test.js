@@ -131,4 +131,17 @@ assert.strictEqual(energySummary.fragments.length, 8);
 assert.ok(energySummary.title.includes("能量"));
 assert.ok(energySummary.text.length > 0);
 
+const closeScores = { E: 5, I: 4, S: 4, N: 4, T: 6, F: 2, J: 3, P: 5 };
+const strengths = sandbox.calculateDimensionStrengths(closeScores);
+assert.strictEqual(strengths.energy.label, "温和");
+assert.strictEqual(strengths.perception.label, "平衡");
+assert.strictEqual(strengths.judgment.label, "明显");
+assert.ok(strengths.rhythm.text.includes("弹性"));
+
+const resultWithEvidence = sandbox.calculateHeartMapResult(answers);
+assert.ok(Array.isArray(resultWithEvidence.echoes));
+assert.ok(resultWithEvidence.echoes.length > 0);
+assert.ok(resultWithEvidence.strengths.energy.label);
+assert.ok(resultWithEvidence.report.evidence.includes("回响"));
+
 console.log("mbti game tests passed");
