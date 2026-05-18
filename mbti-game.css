@@ -927,7 +927,7 @@ button {
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 34px 1fr 28px;
+  grid-template-columns: 34px 1fr;
   gap: 10px;
   align-items: center;
   min-height: 52px;
@@ -985,19 +985,6 @@ button {
   font-size: 12px;
   font-style: normal;
   line-height: 1.4;
-}
-
-.choice-pole {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 50%;
-  color: #fef3c7;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 900;
 }
 
 .heart-actions {

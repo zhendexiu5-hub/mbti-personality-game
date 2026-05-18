@@ -23,9 +23,14 @@ const sandbox = {
 vm.createContext(sandbox);
 vm.runInContext(source, sandbox);
 
-assert.strictEqual(sandbox.heartMapScenes.length, 16);
+assert.strictEqual(sandbox.heartMapScenes.length, 32);
 assert.deepStrictEqual([...new Set(sandbox.heartMapScenes.map((scene) => scene.chapter))], ["energy", "perception", "judgment", "rhythm"]);
 assert.deepStrictEqual([...new Set(sandbox.heartMapScenes.map((scene) => scene.category))], ["情感关系", "人际相处", "职业工作", "情绪成长"]);
+
+const chapterCounts = sandbox.heartMapChapters.map((chapter) => (
+  sandbox.heartMapScenes.filter((scene) => scene.chapter === chapter.id).length
+));
+assert.deepStrictEqual(Array.from(chapterCounts), [8, 8, 8, 8]);
 
 const answers = {};
 sandbox.heartMapScenes.forEach((scene) => {

@@ -277,26 +277,314 @@ var heartMapScenes = [
       { id: "a", text: "“是将混乱终结，建立起坚不可摧的秩序，达成我既定的宏愿。”", pole: "J", note: "你会把旅途收束成清晰目标。" },
       { id: "b", text: "“是体验无限的可能，在未知的变化中感受自由的脉动。”", pole: "P", note: "你会把旅途看作不断展开的可能。" }
     ]
+  },
+  {
+    id: "s17",
+    chapter: "energy",
+    category: "情感关系",
+    tag: "第十七幕",
+    img: "./assets/energy-gate.svg",
+    fallback: "linear-gradient(to bottom, #451a03, #020617)",
+    icon: "🍷",
+    speaker: "红发吟游诗人",
+    glow: "rgba(251,146,60,0.8)",
+    title: "午夜邀舞",
+    prompt: "酒馆的乐声忽然停下，吟游诗人把一只银杯推到你面前：“这一曲需要一位见证者，也需要一位回应者。”",
+    choices: [
+      { id: "a", text: "举杯走到人群中央，让故事从你的第一句话开始燃起来。", pole: "E", note: "你更容易在回应和现场感里进入状态。" },
+      { id: "b", text: "把银杯轻轻转向烛火，先听完整首曲子的暗线再开口。", pole: "I", note: "你更愿意先在心里消化，再给出真正的回应。" }
+    ]
+  },
+  {
+    id: "s18",
+    chapter: "energy",
+    category: "人际相处",
+    tag: "第十八幕",
+    img: "./assets/energy-gate.svg",
+    fallback: "linear-gradient(to bottom, #451a03, #020617)",
+    icon: "🪶",
+    speaker: "旅队书记官",
+    glow: "rgba(96,165,250,0.8)",
+    title: "陌生盟约",
+    prompt: "一支陌生旅队请求与你们并行一夜。书记官递来名单，所有人都在等你决定如何建立信任。",
+    choices: [
+      { id: "a", text: "邀请他们围坐篝火，先交换名字、笑话和各自带来的消息。", pole: "E", note: "你倾向于用互动加速熟悉感。" },
+      { id: "b", text: "安排守夜顺序，安静观察他们如何对待弱者和承诺。", pole: "I", note: "你倾向于用时间和细节判断关系是否可靠。" }
+    ]
+  },
+  {
+    id: "s19",
+    chapter: "energy",
+    category: "职业工作",
+    tag: "第十九幕",
+    img: "./assets/energy-gate.svg",
+    fallback: "linear-gradient(to bottom, #451a03, #020617)",
+    icon: "📣",
+    speaker: "战场传令官",
+    glow: "rgba(192,132,252,0.8)",
+    title: "临阵发令",
+    prompt: "前线传来混乱消息，三支小队同时望向你。传令官低声说：“大人，现在需要一个能稳住局面的人。”",
+    choices: [
+      { id: "a", text: "登上石阶，用清楚的声音把目标、风险和下一步讲给所有人听。", pole: "E", note: "你会通过公开表达让团队获得节奏。" },
+      { id: "b", text: "先退到地图旁，把关键情报整理成三条命令，再交给可靠的人传达。", pole: "I", note: "你会先压住噪音，把能量集中到最有效的输出。" }
+    ]
+  },
+  {
+    id: "s20",
+    chapter: "energy",
+    category: "情绪成长",
+    tag: "第二十幕",
+    img: "./assets/energy-gate.svg",
+    fallback: "linear-gradient(to bottom, #451a03, #020617)",
+    icon: "🫧",
+    speaker: "炉边低语",
+    glow: "rgba(251,146,60,0.8)",
+    title: "疲惫之后",
+    prompt: "大战后的夜晚终于安静下来。你意识到自己已经很累，但明天还要继续上路。",
+    choices: [
+      { id: "a", text: "去找队友聊几句，把今天的惊险讲成笑话，让心跳慢慢落地。", pole: "E", note: "你能从连接和回应中恢复情绪温度。" },
+      { id: "b", text: "独自走到门外看雪，把所有声音留在身后，等心里重新有空间。", pole: "I", note: "你能从安静和距离中恢复内在秩序。" }
+    ]
+  },
+  {
+    id: "s21",
+    chapter: "perception",
+    category: "情感关系",
+    tag: "第二十一幕",
+    img: "./assets/perception-forest.svg",
+    fallback: "linear-gradient(to bottom, #064e3b, #020617)",
+    icon: "🪞",
+    speaker: "湖心镜灵",
+    glow: "rgba(52,211,153,0.8)",
+    title: "倒影来信",
+    prompt: "湖面浮现一封来自旧友的信，但字迹被水纹撕碎。镜灵问：“你最先相信什么？”",
+    choices: [
+      { id: "a", text: "先辨认纸张、印泥和熟悉的书写习惯，确认这封信是否真实。", pole: "S", note: "你会先把关系里的不安落到可验证线索上。" },
+      { id: "b", text: "先感受这些残句透露出的情绪方向，判断旧友真正想避开什么。", pole: "N", note: "你会先捕捉关系背后没有说出口的含义。" }
+    ]
+  },
+  {
+    id: "s22",
+    chapter: "perception",
+    category: "人际相处",
+    tag: "第二十二幕",
+    img: "./assets/perception-forest.svg",
+    fallback: "linear-gradient(to bottom, #064e3b, #020617)",
+    icon: "🦉",
+    speaker: "夜枭向导",
+    glow: "rgba(148,163,184,0.8)",
+    title: "无声脚印",
+    prompt: "森林里出现两排脚印，一排清晰，一排若隐若现。夜枭向导歪头看你：“哪一排更值得追？”",
+    choices: [
+      { id: "a", text: "追清晰脚印，先根据深浅、间距和泥土湿度判断人数。", pole: "S", note: "你相信具体证据会一点点拼出答案。" },
+      { id: "b", text: "追若隐若现的那排，因为被隐藏的路径往往说明真正的意图。", pole: "N", note: "你会被异常模式和潜在动机吸引。" }
+    ]
+  },
+  {
+    id: "s23",
+    chapter: "perception",
+    category: "职业工作",
+    tag: "第二十三幕",
+    img: "./assets/perception-forest.svg",
+    fallback: "linear-gradient(to bottom, #064e3b, #020617)",
+    icon: "🧪",
+    speaker: "炼金师",
+    glow: "rgba(129,140,248,0.8)",
+    title: "两瓶药剂",
+    prompt: "炼金师给你两瓶药剂：一瓶标着完整成分，一瓶只写着“让看不见的事显形”。你只能带一瓶上路。",
+    choices: [
+      { id: "a", text: "带成分清楚的那瓶，效果、剂量和副作用都能预估。", pole: "S", note: "你更安心于清晰、可复查、可执行的信息。" },
+      { id: "b", text: "带能显形的那瓶，未知问题需要能打开新视角的工具。", pole: "N", note: "你更看重突破已有框架的可能。" }
+    ]
+  },
+  {
+    id: "s24",
+    chapter: "perception",
+    category: "情绪成长",
+    tag: "第二十四幕",
+    img: "./assets/perception-forest.svg",
+    fallback: "linear-gradient(to bottom, #064e3b, #020617)",
+    icon: "🌫️",
+    speaker: "雾中自己",
+    glow: "rgba(52,211,153,0.8)",
+    title: "迷雾自问",
+    prompt: "雾气凝成另一个你。它没有攻击，只是问：“当你不确定时，你通常怎样让自己安心？”",
+    choices: [
+      { id: "a", text: "列出已经发生的事实，让恐惧从想象变成可以处理的清单。", pole: "S", note: "你会用事实感安顿情绪。" },
+      { id: "b", text: "寻找这次混乱可能通向的变化，给不安一个更大的解释。", pole: "N", note: "你会用意义感安顿情绪。" }
+    ]
+  },
+  {
+    id: "s25",
+    chapter: "judgment",
+    category: "情感关系",
+    tag: "第二十五幕",
+    img: "./assets/judgment-scale.svg",
+    fallback: "linear-gradient(to bottom, #172554, #020617)",
+    icon: "🩹",
+    speaker: "旧日搭档",
+    glow: "rgba(34,211,238,0.8)",
+    title: "迟来的解释",
+    prompt: "多年未见的搭档终于承认，当初离开队伍是为了保护某个秘密。所有人都等你回应。",
+    choices: [
+      { id: "a", text: "先问清事实和后果：秘密是什么，谁受了影响，现在如何补救。", pole: "T", note: "你会先建立判断标准，再决定如何回应关系。" },
+      { id: "b", text: "先承认这段沉默带来的痛，再谈是否还能重新信任彼此。", pole: "F", note: "你会先照看关系里的伤口，再进入解决方案。" }
+    ]
+  },
+  {
+    id: "s26",
+    chapter: "judgment",
+    category: "人际相处",
+    tag: "第二十六幕",
+    img: "./assets/judgment-scale.svg",
+    fallback: "linear-gradient(to bottom, #172554, #020617)",
+    icon: "🏛️",
+    speaker: "城门法官",
+    glow: "rgba(251,113,133,0.8)",
+    title: "城门争执",
+    prompt: "难民队伍和守城士兵在城门前爆发争执。粮食有限，天气正在变坏。",
+    choices: [
+      { id: "a", text: "立刻按人数、库存和风险分级制定规则，让每一步都可执行。", pole: "T", note: "你会先压住混乱，建立公平且可执行的秩序。" },
+      { id: "b", text: "先让最虚弱的人进城避寒，再协调士兵和难民代表一起分担压力。", pole: "F", note: "你会先看见具体的人，再寻找能被接受的安排。" }
+    ]
+  },
+  {
+    id: "s27",
+    chapter: "judgment",
+    category: "职业工作",
+    tag: "第二十七幕",
+    img: "./assets/judgment-scale.svg",
+    fallback: "linear-gradient(to bottom, #172554, #020617)",
+    icon: "🗡️",
+    speaker: "副队长",
+    glow: "rgba(251,191,36,0.8)",
+    title: "失败复盘",
+    prompt: "一次任务失败了。副队长低声说：“如果现在开会，大家都会很难受。”",
+    choices: [
+      { id: "a", text: "趁记忆还清楚，马上复盘流程、判断点和责任边界。", pole: "T", note: "你相信清晰分析能减少下一次损失。" },
+      { id: "b", text: "先让队伍休整，确认没有人被羞辱或孤立，再一起复盘。", pole: "F", note: "你相信被接住的人更能面对问题。" }
+    ]
+  },
+  {
+    id: "s28",
+    chapter: "judgment",
+    category: "情绪成长",
+    tag: "第二十八幕",
+    img: "./assets/judgment-scale.svg",
+    fallback: "linear-gradient(to bottom, #172554, #020617)",
+    icon: "🕯️",
+    speaker: "审判厅烛火",
+    glow: "rgba(34,211,238,0.8)",
+    title: "对自己的判词",
+    prompt: "审判厅只剩一盏烛火。墙上浮现你过去一次错误选择，它要求你写下对自己的判词。",
+    choices: [
+      { id: "a", text: "写下原因、代价和改进规则，不让同样的漏洞再次出现。", pole: "T", note: "你会通过原则和修正来重新站稳。" },
+      { id: "b", text: "写下当时的恐惧、愿望和未被照顾的部分，先理解自己。", pole: "F", note: "你会通过理解和接纳来重新站稳。" }
+    ]
+  },
+  {
+    id: "s29",
+    chapter: "rhythm",
+    category: "情感关系",
+    tag: "第二十九幕",
+    img: "./assets/rhythm-city.svg",
+    fallback: "linear-gradient(to bottom, #78350f, #020617)",
+    icon: "🧭",
+    speaker: "星港领航员",
+    glow: "rgba(45,212,191,0.8)",
+    title: "重逢约定",
+    prompt: "你和重要的人约定在星港重逢，但航线可能随风暴变化。领航员问你要怎么安排。",
+    choices: [
+      { id: "a", text: "提前定好集合点、备用时间和失联后的行动顺序。", pole: "J", note: "你会用约定和边界保护关系里的安全感。" },
+      { id: "b", text: "只定一个大方向，保留改道和临时相见的空间。", pole: "P", note: "你会用弹性和信任保护关系里的生命力。" }
+    ]
+  },
+  {
+    id: "s30",
+    chapter: "rhythm",
+    category: "人际相处",
+    tag: "第三十幕",
+    img: "./assets/rhythm-city.svg",
+    fallback: "linear-gradient(to bottom, #78350f, #020617)",
+    icon: "🎭",
+    speaker: "节庆主持人",
+    glow: "rgba(163,230,53,0.8)",
+    title: "临时庆典",
+    prompt: "城里突然宣布今晚举办庆典，但你原本答应队伍整理补给。主持人笑着递来面具。",
+    choices: [
+      { id: "a", text: "先完成补给和交接，确认责任闭环后再决定是否参加。", pole: "J", note: "你更容易在完成承诺后放松。" },
+      { id: "b", text: "调整计划，把庆典当作旅途中难得的补给，回来再收尾。", pole: "P", note: "你更容易在变化和体验里恢复活力。" }
+    ]
+  },
+  {
+    id: "s31",
+    chapter: "rhythm",
+    category: "职业工作",
+    tag: "第三十一幕",
+    img: "./assets/rhythm-city.svg",
+    fallback: "linear-gradient(to bottom, #78350f, #020617)",
+    icon: "🧩",
+    speaker: "钟楼工程师",
+    glow: "rgba(251,191,36,0.8)",
+    title: "钟楼修复",
+    prompt: "钟楼停摆，齿轮散落一地。工程师说：“有两种修法，一种稳，一种快。”",
+    choices: [
+      { id: "a", text: "按图纸逐层复原，先保证钟楼以后每天都能准点运转。", pole: "J", note: "你重视可持续、可预期、能收束的结果。" },
+      { id: "b", text: "先让核心齿轮转起来，在运转中观察哪里还需要调整。", pole: "P", note: "你重视试运行、反馈和边走边修的空间。" }
+    ]
+  },
+  {
+    id: "s32",
+    chapter: "rhythm",
+    category: "情绪成长",
+    tag: "终幕",
+    img: "./assets/rhythm-city.svg",
+    fallback: "linear-gradient(to bottom, #78350f, #020617)",
+    icon: "🕰️",
+    speaker: "时间之神",
+    glow: "rgba(255,255,255,0.9)",
+    title: "最后一枚刻度",
+    prompt: "时间之神把最后一枚刻度交给你：“当新的旅程开始，你希望自己怎样面对未知？”",
+    choices: [
+      { id: "a", text: "带着清晰目标出发，把未知拆成可以一步步完成的路。", pole: "J", note: "你会用结构给未知命名。" },
+      { id: "b", text: "带着好奇心出发，让路在脚下慢慢显示它真正的方向。", pole: "P", note: "你会用开放给未知留门。" }
+    ]
   }
 ];
 
 var heartMapActions = {
-  s01: { a: "赴约", b: "改期", c: "试聊" },
-  s02: { a: "破冰", b: "观察", c: "小聊" },
-  s03: { a: "同步", b: "整理", c: "试发" },
-  s04: { a: "倾诉", b: "静音", c: "缓回" },
-  s05: { a: "看事实", b: "问情绪", c: "读信号" },
-  s06: { a: "追线索", b: "想转折", c: "直接问" },
-  s07: { a: "列边界", b: "画大图", c: "找案例" },
-  s08: { a: "拆事实", b: "问触点", c: "去散步" },
-  s09: { a: "讲清楚", b: "先接住", c: "暂停" },
-  s10: { a: "判紧急", b: "调整", c: "折中" },
-  s11: { a: "指出", b: "铺垫", c: "列问题" },
-  s12: { a: "复盘", b: "允许", c: "宽待" },
-  s13: { a: "要安排", b: "随当下", c: "提前说" },
-  s14: { a: "排日程", b: "看状态", c: "只选一场" },
-  s15: { a: "收尾", b: "改道", c: "小实验" },
-  s16: { a: "7 天计划", b: "试方向", c: "先整理" }
+  s01: { a: "入席", b: "独酌" },
+  s02: { a: "讲述", b: "聆听" },
+  s03: { a: "结交", b: "小聚" },
+  s04: { a: "集结", b: "整备" },
+  s05: { a: "辨纹", b: "解喻" },
+  s06: { a: "寻迹", b: "凭感" },
+  s07: { a: "取图", b: "听谶" },
+  s08: { a: "查源", b: "解兆" },
+  s09: { a: "撤离", b: "营救" },
+  s10: { a: "执法", b: "援手" },
+  s11: { a: "仲裁", b: "修和" },
+  s12: { a: "审讯", b: "问境" },
+  s13: { a: "备战", b: "应变" },
+  s14: { a: "守路", b: "追光" },
+  s15: { a: "铺桥", b: "探路" },
+  s16: { a: "立誓", b: "逐星" },
+  s17: { a: "举杯", b: "聆听" },
+  s18: { a: "围坐", b: "守夜" },
+  s19: { a: "发令", b: "整理" },
+  s20: { a: "闲谈", b: "看雪" },
+  s21: { a: "验信", b: "读心" },
+  s22: { a: "追迹", b: "寻意" },
+  s23: { a: "稳妥", b: "显形" },
+  s24: { a: "列事实", b: "找意义" },
+  s25: { a: "问清", b: "接住" },
+  s26: { a: "定规", b: "护人" },
+  s27: { a: "复盘", b: "休整" },
+  s28: { a: "修正", b: "理解" },
+  s29: { a: "约定", b: "留白" },
+  s30: { a: "闭环", b: "改程" },
+  s31: { a: "复原", b: "试转" },
+  s32: { a: "定路", b: "开门" }
 };
 
 var chapterMarks = {
@@ -582,8 +870,8 @@ function renderChoiceEcho() {
   const poleProfile = cinematicPoleProfiles[gameState.lastChoice.pole] || cinematicPoleProfiles.E;
   return `
     <div class="choice-echo echo-${poleProfile.tone}">
-      <i>${gameState.lastChoice.pole}</i>
-      <strong>${poleProfile.label}</strong>
+      <i>${gameState.lastChoice.mark}</i>
+      <strong>命运回响</strong>
       <span>${compactNote(gameState.lastChoice.note)}</span>
     </div>
   `;
@@ -626,6 +914,7 @@ function answerHeartScene(choiceId) {
       title: scene.title,
       choiceId: choice.id,
       pole: choice.pole,
+      mark: chapterMarks[scene.chapter],
       note: choice.note
     };
   }
@@ -742,7 +1031,7 @@ function renderHeartGame() {
           <button class="heart-mark" onclick="gameState.screen='intro'; renderHeartGame()" aria-label="返回起点">心</button>
           <div>
             <h1>心境地图</h1>
-            <p>${gameState.screen === "result" ? "心型已生成" : "16 格探索"}</p>
+            <p>${gameState.screen === "result" ? "心型已生成" : "32 幕长旅"}</p>
           </div>
         </div>
         ${renderHeartStats()}
@@ -784,7 +1073,7 @@ function renderHeartMap() {
             <div class="chapter-label">
               <i>${chapterMarks[chapter.id]}</i>
               <strong>${chapter.title}</strong>
-              <span>${doneCount}/4</span>
+              <span>${doneCount}/${scenes.length}</span>
             </div>
             <div class="heart-nodes">
               ${scenes.map((scene) => {
@@ -814,7 +1103,7 @@ function renderHeartIntro() {
         <div class="intro-desc">
           这不是一场问卷。<br>
           你会穿过四道心门，<br>
-          用 16 次行动点亮自己的心型。
+          用 32 次行动穿过一段完整旅程。
         </div>
         <button class="heart-primary" onclick="startHeartMap()">开始</button>
       </div>
@@ -863,9 +1152,8 @@ function renderHeartPlay() {
         <div class="choices-container">
           ${scene.choices.map((choice) => `
             <button class="choice-card choice-${choice.pole.toLowerCase()} ${selected === choice.id ? "selected" : ""}" onclick="answerHeartScene('${choice.id}')" aria-label="${choice.text}">
-              <span>${choice.id.toUpperCase()}</span>
+              <span>${choice.id === "a" ? "Ⅰ" : "Ⅱ"}</span>
               <strong>${choiceAction(scene, choice)}<em>${choice.text}</em></strong>
-              <i class="choice-pole">${choice.pole}</i>
             </button>
           `).join("")}
         </div>

@@ -493,6 +493,454 @@
           "label": "保留变化"
         }
       }
+    },
+    "s17": {
+      "title": "午夜邀舞",
+      "chapter": "energy",
+      "category": "情感关系",
+      "speaker": "红发吟游诗人",
+      "mood": "ember",
+      "camera": "push",
+      "ambience": "snow",
+      "foreground": "lanterns",
+      "expression": "soft",
+      "gesture": "open",
+      "prop": "moon",
+      "beat": "bond",
+      "choices": {
+        "a": {
+          "pole": "E",
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
+        },
+        "b": {
+          "pole": "I",
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        }
+      }
+    },
+    "s18": {
+      "title": "陌生盟约",
+      "chapter": "energy",
+      "category": "人际相处",
+      "speaker": "旅队书记官",
+      "mood": "ember",
+      "camera": "push",
+      "ambience": "snow",
+      "foreground": "lanterns",
+      "expression": "watch",
+      "gesture": "listen",
+      "prop": "circle",
+      "beat": "crowd",
+      "choices": {
+        "a": {
+          "pole": "E",
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
+        },
+        "b": {
+          "pole": "I",
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        }
+      }
+    },
+    "s19": {
+      "title": "临阵发令",
+      "chapter": "energy",
+      "category": "职业工作",
+      "speaker": "战场传令官",
+      "mood": "ember",
+      "camera": "push",
+      "ambience": "snow",
+      "foreground": "lanterns",
+      "expression": "focus",
+      "gesture": "point",
+      "prop": "route",
+      "beat": "task",
+      "choices": {
+        "a": {
+          "pole": "E",
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
+        },
+        "b": {
+          "pole": "I",
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        }
+      }
+    },
+    "s20": {
+      "title": "疲惫之后",
+      "chapter": "energy",
+      "category": "情绪成长",
+      "speaker": "炉边低语",
+      "mood": "ember",
+      "camera": "push",
+      "ambience": "snow",
+      "foreground": "lanterns",
+      "expression": "inner",
+      "gesture": "hold",
+      "prop": "spark",
+      "beat": "growth",
+      "choices": {
+        "a": {
+          "pole": "E",
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
+        },
+        "b": {
+          "pole": "I",
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        }
+      }
+    },
+    "s21": {
+      "title": "倒影来信",
+      "chapter": "perception",
+      "category": "情感关系",
+      "speaker": "湖心镜灵",
+      "mood": "mist",
+      "camera": "drift",
+      "ambience": "spores",
+      "foreground": "branches",
+      "expression": "soft",
+      "gesture": "open",
+      "prop": "moon",
+      "beat": "bond",
+      "choices": {
+        "a": {
+          "pole": "S",
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
+        },
+        "b": {
+          "pole": "N",
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        }
+      }
+    },
+    "s22": {
+      "title": "无声脚印",
+      "chapter": "perception",
+      "category": "人际相处",
+      "speaker": "夜枭向导",
+      "mood": "mist",
+      "camera": "drift",
+      "ambience": "spores",
+      "foreground": "branches",
+      "expression": "watch",
+      "gesture": "listen",
+      "prop": "circle",
+      "beat": "crowd",
+      "choices": {
+        "a": {
+          "pole": "S",
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
+        },
+        "b": {
+          "pole": "N",
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        }
+      }
+    },
+    "s23": {
+      "title": "两瓶药剂",
+      "chapter": "perception",
+      "category": "职业工作",
+      "speaker": "炼金师",
+      "mood": "mist",
+      "camera": "drift",
+      "ambience": "spores",
+      "foreground": "branches",
+      "expression": "focus",
+      "gesture": "point",
+      "prop": "route",
+      "beat": "task",
+      "choices": {
+        "a": {
+          "pole": "S",
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
+        },
+        "b": {
+          "pole": "N",
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        }
+      }
+    },
+    "s24": {
+      "title": "迷雾自问",
+      "chapter": "perception",
+      "category": "情绪成长",
+      "speaker": "雾中自己",
+      "mood": "mist",
+      "camera": "drift",
+      "ambience": "spores",
+      "foreground": "branches",
+      "expression": "inner",
+      "gesture": "hold",
+      "prop": "spark",
+      "beat": "growth",
+      "choices": {
+        "a": {
+          "pole": "S",
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
+        },
+        "b": {
+          "pole": "N",
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        }
+      }
+    },
+    "s25": {
+      "title": "迟来的解释",
+      "chapter": "judgment",
+      "category": "情感关系",
+      "speaker": "旧日搭档",
+      "mood": "steel",
+      "camera": "tilt",
+      "ambience": "sparks",
+      "foreground": "chains",
+      "expression": "soft",
+      "gesture": "open",
+      "prop": "moon",
+      "beat": "bond",
+      "choices": {
+        "a": {
+          "pole": "T",
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
+        },
+        "b": {
+          "pole": "F",
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        }
+      }
+    },
+    "s26": {
+      "title": "城门争执",
+      "chapter": "judgment",
+      "category": "人际相处",
+      "speaker": "城门法官",
+      "mood": "steel",
+      "camera": "tilt",
+      "ambience": "sparks",
+      "foreground": "chains",
+      "expression": "watch",
+      "gesture": "listen",
+      "prop": "circle",
+      "beat": "crowd",
+      "choices": {
+        "a": {
+          "pole": "T",
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
+        },
+        "b": {
+          "pole": "F",
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        }
+      }
+    },
+    "s27": {
+      "title": "失败复盘",
+      "chapter": "judgment",
+      "category": "职业工作",
+      "speaker": "副队长",
+      "mood": "steel",
+      "camera": "tilt",
+      "ambience": "sparks",
+      "foreground": "chains",
+      "expression": "focus",
+      "gesture": "point",
+      "prop": "route",
+      "beat": "task",
+      "choices": {
+        "a": {
+          "pole": "T",
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
+        },
+        "b": {
+          "pole": "F",
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        }
+      }
+    },
+    "s28": {
+      "title": "对自己的判词",
+      "chapter": "judgment",
+      "category": "情绪成长",
+      "speaker": "审判厅烛火",
+      "mood": "steel",
+      "camera": "tilt",
+      "ambience": "sparks",
+      "foreground": "chains",
+      "expression": "inner",
+      "gesture": "hold",
+      "prop": "spark",
+      "beat": "growth",
+      "choices": {
+        "a": {
+          "pole": "T",
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
+        },
+        "b": {
+          "pole": "F",
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        }
+      }
+    },
+    "s29": {
+      "title": "重逢约定",
+      "chapter": "rhythm",
+      "category": "情感关系",
+      "speaker": "星港领航员",
+      "mood": "gold",
+      "camera": "orbit",
+      "ambience": "stars",
+      "foreground": "gears",
+      "expression": "soft",
+      "gesture": "open",
+      "prop": "moon",
+      "beat": "bond",
+      "choices": {
+        "a": {
+          "pole": "J",
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
+        },
+        "b": {
+          "pole": "P",
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        }
+      }
+    },
+    "s30": {
+      "title": "临时庆典",
+      "chapter": "rhythm",
+      "category": "人际相处",
+      "speaker": "节庆主持人",
+      "mood": "gold",
+      "camera": "orbit",
+      "ambience": "stars",
+      "foreground": "gears",
+      "expression": "watch",
+      "gesture": "listen",
+      "prop": "circle",
+      "beat": "crowd",
+      "choices": {
+        "a": {
+          "pole": "J",
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
+        },
+        "b": {
+          "pole": "P",
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        }
+      }
+    },
+    "s31": {
+      "title": "钟楼修复",
+      "chapter": "rhythm",
+      "category": "职业工作",
+      "speaker": "钟楼工程师",
+      "mood": "gold",
+      "camera": "orbit",
+      "ambience": "stars",
+      "foreground": "gears",
+      "expression": "focus",
+      "gesture": "point",
+      "prop": "route",
+      "beat": "task",
+      "choices": {
+        "a": {
+          "pole": "J",
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
+        },
+        "b": {
+          "pole": "P",
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        }
+      }
+    },
+    "s32": {
+      "title": "最后一枚刻度",
+      "chapter": "rhythm",
+      "category": "情绪成长",
+      "speaker": "时间之神",
+      "mood": "gold",
+      "camera": "orbit",
+      "ambience": "stars",
+      "foreground": "gears",
+      "expression": "inner",
+      "gesture": "hold",
+      "prop": "spark",
+      "beat": "growth",
+      "choices": {
+        "a": {
+          "pole": "J",
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
+        },
+        "b": {
+          "pole": "P",
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        }
+      }
     }
   }
 }
