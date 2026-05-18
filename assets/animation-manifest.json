@@ -1,0 +1,498 @@
+{
+  "version": 1,
+  "strategy": "procedural-cinematic-director",
+  "engine": "html-css-js",
+  "externalDependencies": [],
+  "chapters": {
+    "energy": {
+      "title": "能量之门",
+      "pair": "E / I",
+      "color": "#ff6b3d",
+      "mood": "ember",
+      "camera": "push",
+      "ambience": "snow",
+      "foreground": "lanterns",
+      "asset": "./assets/energy-gate.svg"
+    },
+    "perception": {
+      "title": "感知森林",
+      "pair": "S / N",
+      "color": "#1f9f84",
+      "mood": "mist",
+      "camera": "drift",
+      "ambience": "spores",
+      "foreground": "branches",
+      "asset": "./assets/perception-forest.svg"
+    },
+    "judgment": {
+      "title": "判断天平",
+      "pair": "T / F",
+      "color": "#4f6fb7",
+      "mood": "steel",
+      "camera": "tilt",
+      "ambience": "sparks",
+      "foreground": "chains",
+      "asset": "./assets/judgment-scale.svg"
+    },
+    "rhythm": {
+      "title": "生活节奏城",
+      "pair": "J / P",
+      "color": "#d49a23",
+      "mood": "gold",
+      "camera": "orbit",
+      "ambience": "stars",
+      "foreground": "gears",
+      "asset": "./assets/rhythm-city.svg"
+    }
+  },
+  "scenes": {
+    "s01": {
+      "title": "暴雪酒馆",
+      "chapter": "energy",
+      "category": "情感关系",
+      "speaker": "酒馆老板",
+      "mood": "ember",
+      "camera": "push",
+      "ambience": "snow",
+      "foreground": "lanterns",
+      "expression": "soft",
+      "gesture": "open",
+      "prop": "moon",
+      "beat": "bond",
+      "choices": {
+        "a": {
+          "pole": "E",
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
+        },
+        "b": {
+          "pole": "I",
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        }
+      }
+    },
+    "s02": {
+      "title": "营地篝火",
+      "chapter": "energy",
+      "category": "人际相处",
+      "speaker": "游侠斥候",
+      "mood": "ember",
+      "camera": "push",
+      "ambience": "snow",
+      "foreground": "lanterns",
+      "expression": "watch",
+      "gesture": "listen",
+      "prop": "circle",
+      "beat": "crowd",
+      "choices": {
+        "a": {
+          "pole": "E",
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
+        },
+        "b": {
+          "pole": "I",
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        }
+      }
+    },
+    "s03": {
+      "title": "千人盛宴",
+      "chapter": "energy",
+      "category": "职业工作",
+      "speaker": "宫廷执事",
+      "mood": "ember",
+      "camera": "push",
+      "ambience": "snow",
+      "foreground": "lanterns",
+      "expression": "focus",
+      "gesture": "point",
+      "prop": "route",
+      "beat": "task",
+      "choices": {
+        "a": {
+          "pole": "E",
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
+        },
+        "b": {
+          "pole": "I",
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        }
+      }
+    },
+    "s04": {
+      "title": "破晓集结",
+      "chapter": "energy",
+      "category": "情绪成长",
+      "speaker": "远征军号手",
+      "mood": "ember",
+      "camera": "push",
+      "ambience": "snow",
+      "foreground": "lanterns",
+      "expression": "inner",
+      "gesture": "hold",
+      "prop": "spark",
+      "beat": "growth",
+      "choices": {
+        "a": {
+          "pole": "E",
+          "tone": "flare",
+          "motion": "step-forward",
+          "label": "向外点燃"
+        },
+        "b": {
+          "pole": "I",
+          "tone": "dusk",
+          "motion": "step-back",
+          "label": "向内回收"
+        }
+      }
+    },
+    "s05": {
+      "title": "青苔壁画",
+      "chapter": "perception",
+      "category": "情感关系",
+      "speaker": "遗迹石碑",
+      "mood": "mist",
+      "camera": "drift",
+      "ambience": "spores",
+      "foreground": "branches",
+      "expression": "soft",
+      "gesture": "open",
+      "prop": "moon",
+      "beat": "bond",
+      "choices": {
+        "a": {
+          "pole": "S",
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
+        },
+        "b": {
+          "pole": "N",
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        }
+      }
+    },
+    "s06": {
+      "title": "迷宫岔路",
+      "chapter": "perception",
+      "category": "人际相处",
+      "speaker": "内心独白",
+      "mood": "mist",
+      "camera": "drift",
+      "ambience": "spores",
+      "foreground": "branches",
+      "expression": "watch",
+      "gesture": "listen",
+      "prop": "circle",
+      "beat": "crowd",
+      "choices": {
+        "a": {
+          "pole": "S",
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
+        },
+        "b": {
+          "pole": "N",
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        }
+      }
+    },
+    "s07": {
+      "title": "地图与箴言",
+      "chapter": "perception",
+      "category": "职业工作",
+      "speaker": "盲眼先知",
+      "mood": "mist",
+      "camera": "drift",
+      "ambience": "spores",
+      "foreground": "branches",
+      "expression": "focus",
+      "gesture": "point",
+      "prop": "route",
+      "beat": "task",
+      "choices": {
+        "a": {
+          "pole": "S",
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
+        },
+        "b": {
+          "pole": "N",
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        }
+      }
+    },
+    "s08": {
+      "title": "雾中低语",
+      "chapter": "perception",
+      "category": "情绪成长",
+      "speaker": "迷雾回声",
+      "mood": "mist",
+      "camera": "drift",
+      "ambience": "spores",
+      "foreground": "branches",
+      "expression": "inner",
+      "gesture": "hold",
+      "prop": "spark",
+      "beat": "growth",
+      "choices": {
+        "a": {
+          "pole": "S",
+          "tone": "detail",
+          "motion": "inspect",
+          "label": "拾取线索"
+        },
+        "b": {
+          "pole": "N",
+          "tone": "vision",
+          "motion": "dream",
+          "label": "看见隐喻"
+        }
+      }
+    },
+    "s09": {
+      "title": "撤离抉择",
+      "chapter": "judgment",
+      "category": "情感关系",
+      "speaker": "受伤的同伴",
+      "mood": "steel",
+      "camera": "tilt",
+      "ambience": "sparks",
+      "foreground": "chains",
+      "expression": "soft",
+      "gesture": "open",
+      "prop": "moon",
+      "beat": "bond",
+      "choices": {
+        "a": {
+          "pole": "T",
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
+        },
+        "b": {
+          "pole": "F",
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        }
+      }
+    },
+    "s10": {
+      "title": "圣水判决",
+      "chapter": "judgment",
+      "category": "人际相处",
+      "speaker": "治安官",
+      "mood": "steel",
+      "camera": "tilt",
+      "ambience": "sparks",
+      "foreground": "chains",
+      "expression": "watch",
+      "gesture": "listen",
+      "prop": "circle",
+      "beat": "crowd",
+      "choices": {
+        "a": {
+          "pole": "T",
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
+        },
+        "b": {
+          "pole": "F",
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        }
+      }
+    },
+    "s11": {
+      "title": "矿脉仲裁",
+      "chapter": "judgment",
+      "category": "职业工作",
+      "speaker": "公会使者",
+      "mood": "steel",
+      "camera": "tilt",
+      "ambience": "sparks",
+      "foreground": "chains",
+      "expression": "focus",
+      "gesture": "point",
+      "prop": "route",
+      "beat": "task",
+      "choices": {
+        "a": {
+          "pole": "T",
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
+        },
+        "b": {
+          "pole": "F",
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        }
+      }
+    },
+    "s12": {
+      "title": "俘虏的情报",
+      "chapter": "judgment",
+      "category": "情绪成长",
+      "speaker": "审判回声",
+      "mood": "steel",
+      "camera": "tilt",
+      "ambience": "sparks",
+      "foreground": "chains",
+      "expression": "inner",
+      "gesture": "hold",
+      "prop": "spark",
+      "beat": "growth",
+      "choices": {
+        "a": {
+          "pole": "T",
+          "tone": "edge",
+          "motion": "measure",
+          "label": "校准原则"
+        },
+        "b": {
+          "pole": "F",
+          "tone": "heart",
+          "motion": "reach",
+          "label": "接住关系"
+        }
+      }
+    },
+    "s13": {
+      "title": "巨龙巢穴前夜",
+      "chapter": "rhythm",
+      "category": "情感关系",
+      "speaker": "后勤军需官",
+      "mood": "gold",
+      "camera": "orbit",
+      "ambience": "stars",
+      "foreground": "gears",
+      "expression": "soft",
+      "gesture": "open",
+      "prop": "moon",
+      "beat": "bond",
+      "choices": {
+        "a": {
+          "pole": "J",
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
+        },
+        "b": {
+          "pole": "P",
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        }
+      }
+    },
+    "s14": {
+      "title": "幻影妖精",
+      "chapter": "rhythm",
+      "category": "人际相处",
+      "speaker": "系统提示",
+      "mood": "gold",
+      "camera": "orbit",
+      "ambience": "stars",
+      "foreground": "gears",
+      "expression": "watch",
+      "gesture": "listen",
+      "prop": "circle",
+      "beat": "crowd",
+      "choices": {
+        "a": {
+          "pole": "J",
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
+        },
+        "b": {
+          "pole": "P",
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        }
+      }
+    },
+    "s15": {
+      "title": "未完成的桥",
+      "chapter": "rhythm",
+      "category": "职业工作",
+      "speaker": "造桥工匠",
+      "mood": "gold",
+      "camera": "orbit",
+      "ambience": "stars",
+      "foreground": "gears",
+      "expression": "focus",
+      "gesture": "point",
+      "prop": "route",
+      "beat": "task",
+      "choices": {
+        "a": {
+          "pole": "J",
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
+        },
+        "b": {
+          "pole": "P",
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        }
+      }
+    },
+    "s16": {
+      "title": "旅途尽头",
+      "chapter": "rhythm",
+      "category": "情绪成长",
+      "speaker": "时间之神",
+      "mood": "gold",
+      "camera": "orbit",
+      "ambience": "stars",
+      "foreground": "gears",
+      "expression": "inner",
+      "gesture": "hold",
+      "prop": "spark",
+      "beat": "growth",
+      "choices": {
+        "a": {
+          "pole": "J",
+          "tone": "order",
+          "motion": "lock",
+          "label": "收束路径"
+        },
+        "b": {
+          "pole": "P",
+          "tone": "wild",
+          "motion": "swerve",
+          "label": "保留变化"
+        }
+      }
+    }
+  }
+}

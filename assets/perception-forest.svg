@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1400" role="img" aria-label="Perception forest ruins in green mist">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#064e3b"/>
+      <stop offset="0.52" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="mist" cx="50%" cy="46%" r="56%">
+      <stop offset="0" stop-color="#6ee7b7" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1400" fill="url(#sky)"/>
+  <rect width="900" height="1400" fill="url(#mist)"/>
+  <g opacity="0.45" filter="url(#blur)">
+    <circle cx="260" cy="430" r="180" fill="#34d399"/>
+    <circle cx="665" cy="390" r="150" fill="#22c55e"/>
+  </g>
+  <g stroke="#031a16" stroke-width="34" stroke-linecap="round">
+    <path d="M90 1320 C120 1030 95 780 160 520 C185 420 175 270 130 80"/>
+    <path d="M780 1360 C760 1020 810 800 745 560 C715 445 720 285 785 90"/>
+    <path d="M300 1380 C310 1120 330 900 300 680 C275 490 320 300 390 130"/>
+    <path d="M600 1360 C570 1110 565 880 615 650 C645 510 625 315 560 120"/>
+  </g>
+  <g stroke="#0f3b2e" stroke-width="16" stroke-linecap="round" opacity="0.74">
+    <path d="M50 420 C230 360 280 240 430 230"/>
+    <path d="M850 465 C690 390 600 280 455 260"/>
+    <path d="M130 670 C260 610 340 595 470 520"/>
+    <path d="M770 720 C650 630 580 600 460 535"/>
+  </g>
+  <g transform="translate(230 650)" fill="#0b1220" stroke="#6ee7b7" stroke-opacity="0.34">
+    <rect x="0" y="250" width="440" height="115" rx="12"/>
+    <rect x="58" y="120" width="82" height="250" rx="8"/>
+    <rect x="180" y="30" width="88" height="340" rx="8"/>
+    <rect x="302" y="150" width="82" height="220" rx="8"/>
+    <path d="M125 118 C170 42 270 42 315 118" fill="none" stroke-width="10"/>
+  </g>
+  <g fill="#bbf7d0" opacity="0.6">
+    <circle cx="225" cy="520" r="5"/>
+    <circle cx="310" cy="395" r="4"/>
+    <circle cx="655" cy="515" r="5"/>
+    <circle cx="565" cy="345" r="4"/>
+    <circle cx="460" cy="610" r="6"/>
+  </g>
+</svg>

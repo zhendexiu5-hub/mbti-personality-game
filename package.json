@@ -1,0 +1,11 @@
+{
+  "name": "mbti-personality-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A static cinematic personality exploration game.",
+  "scripts": {
+    "test": "node tests/mbti-game.test.js",
+    "generate:manifest": "node tools/generate-animation-manifest.js",
+    "deploy": "wrangler pages deploy . --project-name mbti-personality-game"
+  }
+}

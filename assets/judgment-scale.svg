@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1400" role="img" aria-label="Judgment hall with glowing scales">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#172554"/>
+      <stop offset="0.58" stop-color="#111827"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="light" cx="50%" cy="38%" r="52%">
+      <stop offset="0" stop-color="#67e8f9" stop-opacity="0.42"/>
+      <stop offset="0.48" stop-color="#60a5fa" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1400" fill="url(#sky)"/>
+  <rect width="900" height="1400" fill="url(#light)"/>
+  <g fill="#020617" opacity="0.75">
+    <path d="M0 520 L220 360 L220 1400 L0 1400 Z"/>
+    <path d="M900 520 L680 360 L680 1400 L900 1400 Z"/>
+  </g>
+  <g stroke="#93c5fd" stroke-opacity="0.28" stroke-width="16" fill="none">
+    <path d="M220 430 L450 235 L680 430"/>
+    <path d="M450 245 L450 900"/>
+    <path d="M280 600 L620 600"/>
+  </g>
+  <g stroke="#fef3c7" stroke-opacity="0.5" stroke-width="8" fill="none">
+    <path d="M302 600 L242 775 L365 775 Z"/>
+    <path d="M598 600 L535 775 L660 775 Z"/>
+    <path d="M242 775 C275 825 335 825 365 775"/>
+    <path d="M535 775 C570 825 630 825 660 775"/>
+  </g>
+  <g fill="#0f172a" stroke="#60a5fa" stroke-opacity="0.28">
+    <rect x="345" y="900" width="210" height="85" rx="8"/>
+    <rect x="285" y="985" width="330" height="80" rx="8"/>
+    <rect x="200" y="1065" width="500" height="95" rx="8"/>
+  </g>
+  <g stroke="#fbbf24" stroke-linecap="round" stroke-opacity="0.62">
+    <path d="M150 255 l42 22" stroke-width="5"/>
+    <path d="M735 260 l-45 24" stroke-width="5"/>
+    <path d="M450 120 l0 58" stroke-width="6"/>
+    <path d="M326 210 l18 38" stroke-width="4"/>
+    <path d="M574 210 l-18 38" stroke-width="4"/>
+  </g>
+</svg>

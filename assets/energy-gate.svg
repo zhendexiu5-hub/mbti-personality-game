@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1400" role="img" aria-label="Energy gate fantasy tavern at night">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#451a03"/>
+      <stop offset="0.45" stop-color="#111827"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="fire" cx="50%" cy="72%" r="42%">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.86"/>
+      <stop offset="0.42" stop-color="#fb923c" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#020617" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1400" fill="url(#sky)"/>
+  <circle cx="450" cy="950" r="430" fill="url(#fire)"/>
+  <g opacity="0.52" filter="url(#soft)">
+    <circle cx="250" cy="270" r="130" fill="#fb923c"/>
+    <circle cx="680" cy="360" r="170" fill="#7c2d12"/>
+  </g>
+  <g fill="#020617" opacity="0.86">
+    <path d="M0 760 C170 680 255 730 360 690 C520 630 620 670 900 590 L900 1400 L0 1400 Z"/>
+    <path d="M0 910 C170 850 290 880 430 810 C590 730 710 780 900 720 L900 1400 L0 1400 Z" opacity="0.68"/>
+  </g>
+  <g transform="translate(116 410)" stroke="#fcd34d" stroke-opacity="0.35" fill="none">
+    <path d="M70 780 L70 220 C70 75 555 75 555 220 L555 780" stroke-width="22"/>
+    <path d="M150 780 L150 250 C150 150 475 150 475 250 L475 780" stroke-width="9"/>
+    <path d="M312 130 L312 780" stroke-width="5" opacity="0.5"/>
+  </g>
+  <g fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.42">
+    <rect x="110" y="805" width="90" height="330" rx="10"/>
+    <rect x="700" y="780" width="92" height="356" rx="10"/>
+    <rect x="262" y="942" width="380" height="220" rx="16"/>
+  </g>
+  <g fill="#fbbf24">
+    <circle cx="154" cy="790" r="16"/>
+    <circle cx="746" cy="765" r="16"/>
+    <circle cx="450" cy="895" r="24"/>
+  </g>
+  <g opacity="0.45" stroke="#e0f2fe" stroke-width="4" stroke-linecap="round">
+    <path d="M96 160 l34 18"/>
+    <path d="M210 250 l28 12"/>
+    <path d="M740 190 l36 20"/>
+    <path d="M615 315 l26 14"/>
+    <path d="M385 145 l20 10"/>
+  </g>
+</svg>
