@@ -814,6 +814,7 @@ var gameState = {
   result: savedHeartMap.result || null,
   lastChoice: null,
   navigatorOpen: false,
+  currentChapterSummary: savedHeartMap.currentChapterSummary || null,
   toast: ""
 };
 
@@ -822,7 +823,8 @@ function saveHeartMap() {
     screen: gameState.screen,
     currentScene: gameState.currentScene,
     answers: gameState.answers,
-    result: gameState.result
+    result: gameState.result,
+    currentChapterSummary: gameState.currentChapterSummary
   }));
 }
 
@@ -1122,25 +1124,34 @@ function answerHeartScene(choiceId) {
 }
 
 function startHeartMap() {
-  gameState.screen = "play";
+  gameState.screen = "map";
   gameState.currentScene = firstUnfinishedScene(gameState.answers)?.id || "s01";
   gameState.lastChoice = null;
   gameState.navigatorOpen = false;
+  gameState.currentChapterSummary = null;
+  saveHeartMap();
+  renderHeartGame();
+}
+
+function openHeartMap() {
+  gameState.screen = "map";
+  gameState.navigatorOpen = false;
+  gameState.lastChoice = null;
   saveHeartMap();
   renderHeartGame();
 }
 
 function openHeartScene(sceneId) {
-  const targetIndex = sceneIndex(sceneId);
-  const unlocked = targetIndex === 0 || Boolean(gameState.answers[heartMapScenes[targetIndex - 1].id]);
+  const unlocked = isHeartSceneUnlocked(sceneId, gameState.answers);
   if (!unlocked) {
-    showHeartToast("先走完前一个心境事件。");
+    showHeartToast("先点亮前一个心境节点。");
     return;
   }
   gameState.screen = "play";
   gameState.currentScene = sceneId;
   gameState.lastChoice = null;
   gameState.navigatorOpen = false;
+  gameState.currentChapterSummary = null;
   saveHeartMap();
   renderHeartGame();
 }
@@ -1262,7 +1273,7 @@ function renderHeartGame() {
         </div>
       </aside>
       <section class="heart-stage">
-        ${gameState.screen === "intro" ? renderHeartIntro() : gameState.screen === "result" ? renderHeartResult() : renderHeartPlay()}
+        ${gameState.screen === "intro" ? renderHeartIntro() : gameState.screen === "map" ? renderHeartMapScreen() : gameState.screen === "chapter" ? renderChapterSummary() : gameState.screen === "result" ? renderHeartResult() : renderHeartPlay()}
       </section>
       <div class="overlay-grain"></div>
     </section>
@@ -1278,6 +1289,62 @@ function renderHeartStats() {
     <div class="heart-stats">
       <div><strong>${done}/${heartMapScenes.length}</strong><span>进度</span></div>
       <div><strong>${percent}%</strong><span>地图点亮</span></div>
+    </div>
+  `;
+}
+
+function renderHeartMapScreen() {
+  const nodes = buildHeartMapNodes();
+  const fragments = buildEchoFragments(gameState.answers);
+  return `
+    <div class="heart-map-screen">
+      <div class="map-sky"></div>
+      <header class="map-hero">
+        <span>HEART MAP</span>
+        <h2>心境地图</h2>
+        <p>四片区域正在记录你的行动回响。</p>
+      </header>
+      <div class="map-canvas" aria-label="心境地图节点">
+        <div class="map-core">
+          <strong>${Object.keys(gameState.answers).length}</strong>
+          <span>回响</span>
+        </div>
+        ${heartMapChapters.map((chapter) => `
+          <section class="map-region region-${chapter.id}" style="--chapter:${chapter.color}">
+            <h3>${chapterMarks[chapter.id]} ${chapter.title}</h3>
+          </section>
+        `).join("")}
+        ${nodes.map((node) => {
+          const state = getHeartMapNodeState(node.id, gameState.answers);
+          const answer = gameState.answers[node.id];
+          const scene = heartMapScenes.find((item) => item.id === node.id);
+          const choice = scene.choices.find((item) => item.id === answer);
+          const echo = choice ? buildChoiceEcho(scene, choice) : null;
+          return `
+            <button
+              class="map-node ${state.done ? "done" : ""} ${state.active ? "active" : ""} ${state.locked ? "locked" : ""}"
+              style="--x:${node.x}%; --y:${node.y}%; --chapter:${heartMapChapters.find((chapter) => chapter.id === node.chapter).color}"
+              ${state.locked ? "disabled" : ""}
+              onclick="openHeartScene('${node.id}')"
+              aria-label="${node.title}"
+            >
+              <i>${node.number}</i>
+              <span>${echo ? echo.name : node.title}</span>
+            </button>
+          `;
+        }).join("")}
+      </div>
+      <section class="map-echo-panel">
+        <h3>最近回响</h3>
+        <div class="map-echo-list">
+          ${(fragments.length ? fragments.slice(-5).reverse() : [{ name: "空白心灯", text: "开始第一幕，地图会留下你的选择痕迹。" }]).map((fragment) => `
+            <article>
+              <strong>${fragment.name}</strong>
+              <span>${fragment.text}</span>
+            </article>
+          `).join("")}
+        </div>
+      </section>
     </div>
   `;
 }
