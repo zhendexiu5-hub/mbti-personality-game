@@ -39,7 +39,7 @@ assert.deepStrictEqual(Array.from(chapterCounts), [8, 8, 8, 8]);
 const mapNodes = sandbox.buildHeartMapNodes();
 assert.strictEqual(mapNodes.length, 32);
 assert.deepStrictEqual(
-  mapNodes.slice(0, 4).map((node) => node.id),
+  Array.from(mapNodes.slice(0, 4).map((node) => node.id)),
   ["s01", "s02", "s03", "s04"]
 );
 assert.strictEqual(mapNodes[0].chapter, "energy");
@@ -94,7 +94,7 @@ assert.ok(echo.category.length > 0);
 
 const fragments = sandbox.buildEchoFragments({ s01: "a", s02: "b", s09: "c" });
 assert.strictEqual(fragments.length, 3);
-assert.deepStrictEqual(fragments.map((fragment) => fragment.sceneId), ["s01", "s02", "s09"]);
+assert.deepStrictEqual(Array.from(fragments.map((fragment) => fragment.sceneId)), ["s01", "s02", "s09"]);
 assert.ok(fragments.every((fragment) => fragment.name && fragment.text));
 
 sandbox.gameState.screen = "play";

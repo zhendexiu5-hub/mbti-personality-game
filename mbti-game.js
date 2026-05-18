@@ -705,6 +705,24 @@ var categoryVisuals = {
   "情绪成长": { icon: "◌", cue: "内心的灯在暗处呼吸。" }
 };
 
+var chapterMapPositions = {
+  energy: { cx: 50, cy: 18, arc: 24 },
+  perception: { cx: 18, cy: 50, arc: 24 },
+  judgment: { cx: 82, cy: 50, arc: 24 },
+  rhythm: { cx: 50, cy: 82, arc: 24 }
+};
+
+var echoNameByPole = {
+  E: "靠近之光",
+  I: "静候之灯",
+  S: "线索碎片",
+  N: "隐喻回声",
+  T: "清晰刻痕",
+  F: "心灯余温",
+  J: "秩序路标",
+  P: "流动星尘"
+};
+
 var cinematicChapterProfiles = {
   energy: {
     mood: "ember",
@@ -820,6 +838,45 @@ function currentHeartScene() {
   return heartMapScenes[sceneIndex(gameState.currentScene)] || heartMapScenes[0];
 }
 
+function chapterSceneIndex(scene) {
+  return heartMapScenes.filter((item) => item.chapter === scene.chapter).findIndex((item) => item.id === scene.id);
+}
+
+function buildHeartMapNodes() {
+  return heartMapScenes.map((scene) => {
+    const index = sceneIndex(scene.id);
+    const localIndex = chapterSceneIndex(scene);
+    const position = chapterMapPositions[scene.chapter];
+    const angle = (-105 + localIndex * (210 / 7)) * (Math.PI / 180);
+    return {
+      id: scene.id,
+      title: scene.title,
+      chapter: scene.chapter,
+      category: scene.category,
+      number: index + 1,
+      localNumber: localIndex + 1,
+      x: Math.round((position.cx + Math.cos(angle) * position.arc) * 10) / 10,
+      y: Math.round((position.cy + Math.sin(angle) * position.arc) * 10) / 10,
+      echoName: echoNameByPole[primaryChoicePole(scene.choices[0])] || "心境回响"
+    };
+  });
+}
+
+function isHeartSceneUnlocked(sceneId, answers) {
+  const targetIndex = sceneIndex(sceneId);
+  if (targetIndex <= 0) return targetIndex === 0;
+  return Boolean(answers[heartMapScenes[targetIndex - 1].id]);
+}
+
+function getHeartMapNodeState(sceneId, answers) {
+  const firstMissing = firstUnfinishedScene(answers);
+  return {
+    done: Boolean(answers[sceneId]),
+    active: (firstMissing ? firstMissing.id : heartMapScenes[heartMapScenes.length - 1].id) === sceneId,
+    locked: !isHeartSceneUnlocked(sceneId, answers)
+  };
+}
+
 function choiceAction(scene, choice) {
   if (choice.action) return choice.action;
   return heartMapActions[scene.id]?.[choice.id] || choice.text.replace(/[。！？；;]+$/g, "");
@@ -831,6 +888,29 @@ function choiceMark(choiceId) {
 
 function compactNote(note) {
   return note.replace(/^你/, "").replace(/[。！？；;]+$/g, "");
+}
+
+function buildChoiceEcho(scene, choice) {
+  const pole = primaryChoicePole(choice);
+  return {
+    sceneId: scene.id,
+    title: scene.title,
+    chapter: scene.chapter,
+    category: scene.category,
+    choiceId: choice.id,
+    pole,
+    name: echoNameByPole[pole] || "心境回响",
+    action: choiceAction(scene, choice),
+    text: compactNote(choice.note)
+  };
+}
+
+function buildEchoFragments(answers) {
+  return heartMapScenes.reduce((fragments, scene) => {
+    const choice = scene.choices.find((item) => item.id === answers[scene.id]);
+    if (choice) fragments.push(buildChoiceEcho(scene, choice));
+    return fragments;
+  }, []);
 }
 
 function sceneVisual(scene) {
