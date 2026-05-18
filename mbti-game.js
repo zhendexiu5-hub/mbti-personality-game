@@ -915,6 +915,29 @@ function buildEchoFragments(answers) {
   }, []);
 }
 
+function buildChapterSummary(chapterId, answers) {
+  const chapter = heartMapChapters.find((item) => item.id === chapterId);
+  const fragments = buildEchoFragments(answers).filter((fragment) => fragment.chapter === chapterId);
+  const names = fragments.slice(-3).map((fragment) => fragment.name).join("、") || "尚未形成回响";
+  return {
+    chapter: chapterId,
+    title: `${chapter.title}已点亮`,
+    fragments,
+    text: `这一章留下了${names}。它们会在最终心型里变成你的选择证据。`
+  };
+}
+
+function isChapterComplete(chapterId, answers) {
+  return heartMapScenes.filter((scene) => scene.chapter === chapterId).every((scene) => answers[scene.id]);
+}
+
+function nextChapterFirstScene(chapterId) {
+  const chapterIndex = heartMapChapters.findIndex((chapter) => chapter.id === chapterId);
+  const nextChapter = heartMapChapters[chapterIndex + 1];
+  if (!nextChapter) return null;
+  return heartMapScenes.find((scene) => scene.chapter === nextChapter.id) || null;
+}
+
 function sceneVisual(scene) {
   const chapter = chapterVisuals[scene.chapter];
   const category = categoryVisuals[scene.category];
@@ -1115,8 +1138,12 @@ function answerHeartScene(choiceId) {
       note: choice.note
     };
   }
+  const currentChapter = scene.chapter;
   const nextScene = heartMapScenes[sceneIndex(scene.id) + 1];
-  if (nextScene) {
+  if (isChapterComplete(currentChapter, gameState.answers) && (!nextScene || nextScene.chapter !== currentChapter)) {
+    gameState.currentChapterSummary = currentChapter;
+    gameState.screen = "chapter";
+  } else if (nextScene) {
     gameState.currentScene = nextScene.id;
   }
   saveHeartMap();
@@ -1137,6 +1164,20 @@ function openHeartMap() {
   gameState.screen = "map";
   gameState.navigatorOpen = false;
   gameState.lastChoice = null;
+  saveHeartMap();
+  renderHeartGame();
+}
+
+function continueFromChapterSummary() {
+  const nextScene = nextChapterFirstScene(gameState.currentChapterSummary);
+  gameState.currentChapterSummary = null;
+  if (nextScene) {
+    gameState.screen = "map";
+    gameState.currentScene = nextScene.id;
+  } else {
+    finishHeartMap();
+    return;
+  }
   saveHeartMap();
   renderHeartGame();
 }
@@ -1289,6 +1330,34 @@ function renderHeartStats() {
     <div class="heart-stats">
       <div><strong>${done}/${heartMapScenes.length}</strong><span>进度</span></div>
       <div><strong>${percent}%</strong><span>地图点亮</span></div>
+    </div>
+  `;
+}
+
+function renderChapterSummary() {
+  const chapterId = gameState.currentChapterSummary || currentHeartScene().chapter;
+  const summary = buildChapterSummary(chapterId, gameState.answers);
+  const chapter = heartMapChapters.find((item) => item.id === chapterId);
+  return `
+    <div class="chapter-summary-screen" style="--chapter:${chapter.color}">
+      <div class="chapter-summary-card">
+        <span>${chapterMarks[chapterId]}</span>
+        <h2>${summary.title}</h2>
+        <p>${summary.text}</p>
+        <div class="summary-fragments">
+          ${summary.fragments.slice(-4).map((fragment) => `
+            <article>
+              <strong>${fragment.name}</strong>
+              <small>${fragment.action}</small>
+              <p>${fragment.text}</p>
+            </article>
+          `).join("")}
+        </div>
+        <div class="heart-actions">
+          <button onclick="openHeartMap()">回到地图</button>
+          <button class="heart-primary" onclick="continueFromChapterSummary()">继续旅程</button>
+        </div>
+      </div>
     </div>
   `;
 }

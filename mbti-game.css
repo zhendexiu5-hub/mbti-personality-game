@@ -1301,6 +1301,74 @@ button {
   line-height: 1.8;
 }
 
+.chapter-summary-screen {
+  display: grid;
+  min-height: 100%;
+  place-items: center;
+  padding: 28px;
+  background: radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--chapter), transparent 72%), transparent 42%), #020617;
+}
+
+.chapter-summary-card {
+  width: min(92vw, 680px);
+  padding: 28px;
+  border: 1px solid color-mix(in srgb, var(--chapter), transparent 48%);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.84);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+}
+
+.chapter-summary-card > span {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--chapter), transparent 70%);
+  color: #fef3c7;
+  font-weight: 900;
+}
+
+.chapter-summary-card h2 {
+  margin: 18px 0 8px;
+  color: #fef3c7;
+  font-size: 30px;
+}
+
+.chapter-summary-card p {
+  color: #d1d5db;
+  line-height: 1.7;
+}
+
+.summary-fragments {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.summary-fragments article {
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  background: rgba(2, 6, 23, 0.44);
+}
+
+.summary-fragments strong,
+.summary-fragments small {
+  display: block;
+}
+
+.summary-fragments strong {
+  color: #fbbf24;
+}
+
+.summary-fragments small {
+  margin-top: 5px;
+  color: #94a3b8;
+  font-weight: 900;
+}
+
 .heart-map-screen {
   position: relative;
   min-height: 100%;
