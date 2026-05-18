@@ -1542,7 +1542,7 @@ function renderHeartPlay() {
       </div>
       <div class="bottom-ui">
         <div class="heart-actions">
-          <button onclick="toggleHeartNavigator()">${gameState.navigatorOpen ? "收起" : "旅程"}</button>
+          <button onclick="openHeartMap()">地图</button>
           <button onclick="openHeartScene('${heartMapScenes[Math.max(0, index - 1)].id}')">上一幕</button>
           ${nextScene ? `<button onclick="openHeartScene('${nextScene.id}')">下一幕</button>` : ""}
           <button onclick="finishHeartMap()">结算</button>
@@ -1623,7 +1623,7 @@ function renderHeartResult() {
         `).join("")}
         </div>
         <div class="heart-actions">
-          <button onclick="gameState.screen='play'; renderHeartGame()">回看地图</button>
+          <button onclick="openHeartMap()">回看地图</button>
           <button class="heart-primary" onclick="resetHeartMap()">重新探索</button>
         </div>
       </div>

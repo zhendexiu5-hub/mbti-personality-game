@@ -1821,6 +1821,45 @@ button {
   }
 }
 
+@media (max-width: 760px) {
+  .heart-map-screen {
+    padding: 18px 12px 24px;
+  }
+
+  .map-hero h2 {
+    font-size: 28px;
+  }
+
+  .map-canvas {
+    height: 58vh;
+    min-height: 380px;
+  }
+
+  .map-node {
+    width: 42px;
+    height: 42px;
+  }
+
+  .map-node span {
+    display: none;
+  }
+
+  .map-echo-list,
+  .summary-fragments,
+  .strength-grid,
+  .result-evidence > div {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-summary-card {
+    padding: 20px;
+  }
+
+  .chapter-summary-card h2 {
+    font-size: 24px;
+  }
+}
+
 @media (max-width: 420px) {
   .intro-title {
     font-size: 42px;
