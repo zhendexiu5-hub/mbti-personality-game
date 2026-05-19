@@ -705,12 +705,23 @@ var categoryVisuals = {
   "情绪成长": { icon: "◌", cue: "内心的灯在暗处呼吸。" }
 };
 
-var chapterMapPositions = {
-  energy: { cx: 50, cy: 30, arc: 18 },
-  perception: { cx: 30, cy: 50, arc: 18 },
-  judgment: { cx: 70, cy: 50, arc: 18 },
-  rhythm: { cx: 50, cy: 70, arc: 18 }
+var chapterRouteOrigins = {
+  energy: { x: 19, y: 20, className: "route-energy" },
+  perception: { x: 59, y: 20, className: "route-perception" },
+  judgment: { x: 19, y: 58, className: "route-judgment" },
+  rhythm: { x: 59, y: 58, className: "route-rhythm" }
 };
+
+var chapterRoutePoints = [
+  { x: 0, y: 0 },
+  { x: 12, y: 0 },
+  { x: 24, y: 0 },
+  { x: 30, y: 10 },
+  { x: 24, y: 20 },
+  { x: 12, y: 20 },
+  { x: 0, y: 20 },
+  { x: 6, y: 10 }
+];
 
 var echoNameByPole = {
   E: "靠近之光",
@@ -848,8 +859,8 @@ function buildHeartMapNodes() {
   return heartMapScenes.map((scene) => {
     const index = sceneIndex(scene.id);
     const localIndex = chapterSceneIndex(scene);
-    const position = chapterMapPositions[scene.chapter];
-    const angle = (-105 + localIndex * (210 / 7)) * (Math.PI / 180);
+    const origin = chapterRouteOrigins[scene.chapter];
+    const point = chapterRoutePoints[localIndex];
     return {
       id: scene.id,
       title: scene.title,
@@ -857,8 +868,9 @@ function buildHeartMapNodes() {
       category: scene.category,
       number: index + 1,
       localNumber: localIndex + 1,
-      x: Math.round((position.cx + Math.cos(angle) * position.arc) * 10) / 10,
-      y: Math.round((position.cy + Math.sin(angle) * position.arc) * 10) / 10,
+      x: origin.x + point.x,
+      y: origin.y + point.y,
+      routeClass: origin.className,
       echoName: echoNameByPole[primaryChoicePole(scene.choices[0])] || "心境回响"
     };
   });
