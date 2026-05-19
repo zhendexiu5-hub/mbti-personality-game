@@ -49,6 +49,22 @@ assert.ok(Number.isFinite(mapNodes[0].y));
 assert.ok(mapNodes.every((node) => node.echoName));
 assert.ok(mapNodes.every((node) => node.x >= 6 && node.x <= 94));
 assert.ok(mapNodes.every((node) => node.y >= 6 && node.y <= 94));
+const routeChapterCounts = sandbox.heartMapChapters.map((chapter) => (
+  mapNodes.filter((node) => node.chapter === chapter.id).length
+));
+assert.deepStrictEqual(Array.from(routeChapterCounts), [8, 8, 8, 8]);
+
+const closeRoutePairs = [];
+for (let i = 0; i < mapNodes.length; i += 1) {
+  for (let j = i + 1; j < mapNodes.length; j += 1) {
+    const dx = mapNodes[i].x - mapNodes[j].x;
+    const dy = mapNodes[i].y - mapNodes[j].y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    if (distance < 11) closeRoutePairs.push([mapNodes[i].number, mapNodes[j].number, distance]);
+  }
+}
+assert.deepStrictEqual(closeRoutePairs, []);
+assert.ok(mapNodes.every((node) => node.routeClass));
 
 const emptyNodeState = sandbox.getHeartMapNodeState("s01", {});
 assert.strictEqual(emptyNodeState.done, false);
