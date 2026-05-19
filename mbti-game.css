@@ -1507,23 +1507,23 @@ button {
 }
 
 .region-energy {
-  left: 42%;
-  top: 6%;
+  left: 16%;
+  top: 9%;
 }
 
 .region-perception {
-  left: 7%;
-  top: 47%;
+  right: 15%;
+  top: 9%;
 }
 
 .region-judgment {
-  right: 7%;
-  top: 47%;
+  left: 16%;
+  bottom: 30%;
 }
 
 .region-rhythm {
-  left: 42%;
-  bottom: 6%;
+  right: 15%;
+  bottom: 30%;
 }
 
 .map-node {
@@ -1549,12 +1549,29 @@ button {
 
 .map-node span {
   position: absolute;
+  left: 50%;
   top: 52px;
-  width: 92px;
-  color: #cbd5e1;
+  z-index: 4;
+  display: none;
+  width: max-content;
+  max-width: 132px;
+  transform: translateX(-50%);
+  padding: 4px 7px;
+  border: 1px solid color-mix(in srgb, var(--chapter), transparent 42%);
+  border-radius: 4px;
+  background: rgba(2, 6, 23, 0.92);
+  color: #e2e8f0;
   font-size: 10px;
   font-weight: 900;
+  line-height: 1.25;
   text-align: center;
+  white-space: nowrap;
+}
+
+.map-node.active span,
+.map-node:focus-visible span,
+.map-node:hover span {
+  display: block;
 }
 
 .map-node.done {
@@ -1568,6 +1585,13 @@ button {
 .map-node.locked {
   opacity: 0.34;
   box-shadow: none;
+}
+
+.route-energy,
+.route-perception,
+.route-judgment,
+.route-rhythm {
+  outline: 1px solid rgba(255, 255, 255, 0.02);
 }
 
 .map-echo-panel {

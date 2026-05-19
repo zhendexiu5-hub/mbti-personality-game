@@ -1448,7 +1448,7 @@ function renderHeartMapScreen() {
           const echo = choice ? buildChoiceEcho(scene, choice) : null;
           return `
             <button
-              class="map-node ${state.done ? "done" : ""} ${state.active ? "active" : ""} ${state.locked ? "locked" : ""}"
+              class="map-node ${node.routeClass} ${state.done ? "done" : ""} ${state.active ? "active" : ""} ${state.locked ? "locked" : ""}"
               style="--x:${node.x}%; --y:${node.y}%; --chapter:${heartMapChapters.find((chapter) => chapter.id === node.chapter).color}"
               ${state.locked ? "disabled" : ""}
               onclick="openHeartScene('${node.id}')"
